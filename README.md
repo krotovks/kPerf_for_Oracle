@@ -117,5 +117,7 @@ and there's more to come.
 		HTTPPORT=9180			   --- Http for kPerf
 		SNAPINTERVAL=2			   --- Interval between data collection
 		
+        - To start kPerf.py, ensure you are in the kPerf_Standalone directory; otherwise, the kPerfENV file will not be read.
+        - You should not modify the structure of kPerf_Standalone, but you are allowed to rename it.
 		Example of execution:
 		python3.9 ./kPerf.py
