@@ -28,7 +28,23 @@ You only need to create a user in the database and grant the necessary privilege
 All collected data is processed in kPerf(Python).
 The collected data is stored in Prometheus.
 Grafana is used for data visualization (dashboards are included).
-Currently, data is collected from v$system_event, v$sysstat, v$sqlarea, and v$sys_time_model.
+Currently, data is collected from v$system_event, v$sysstat, v$sqlarea, and v$sys_time_model:
+Instance Level:
+- lSYSTEM_EVENT_CLASS-      SUM(TOTAL_WAITS) group by WAIT_CLASS from V_$SYSTEM_EVENT.
+- lSYSTEM_EVENT_CLASS_TIME- SUM(TIME_WAITED_MICRO) group by WAIT_CLASS from V_$SYSTEM_EVENT and V_$SYS_TIME_MODEL.
+- lSYSSTAT				  - Statistics from V_$sysstat.
+- lSYSTEM_EVENT_WAIT_COUNT- Wait Event Count per Event from V_$system_event.
+- lSYSTEM_EVENT_WAIT_TIME - Wait Event Time per Event from V_$system_event.
+
+SQL Level(V_$sqlarea):
+- ELA_PER_EXEC     		 - Elapsed time per execution (μs) for SQL ID and specific plan hash value.
+- CPU_PER_EXEC     		 - CPU Time per execution (μs) for SQL ID and specific plan hash value.
+- APPWAIT_PER_EXEC 		 - APPLICATION_WAIT_TIME per execution (μs) for SQL ID and specific plan hash value.
+- CONCURRENTCY_PER_EXEC  - CONCURRENCY_WAIT_TIME per execution (μs) for SQL ID and specific plan hash value.
+- USERIOWAIT_PER_EXEC	 - USER_IO_WAIT_TIME per execution (μs) for SQL ID and specific plan hash value.
+- SQL_EXECUTIONS_PER_SEC - SQL executions per second for a specific plan hash value.
+- SQL_BG_PER_SEC		 - Buffer gets per SECOND for SQL ID and specific plan hash value.
+- SQL_BG_PER_EXEC		 - Buffer gets per SQL execution for SQL ID and specific plan hash value.
 
 Additional features will be available in the next release.
 
