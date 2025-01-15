@@ -29,6 +29,7 @@ All collected data is processed in kPerf(Python).
 The collected data is stored in Prometheus.
 Grafana is used for data visualization (dashboards are included).
 Currently, data is collected from v$system_event, v$sysstat, v$sqlarea, and v$sys_time_model:
+
 Instance Level:
 - lSYSTEM_EVENT_CLASS-      SUM(TOTAL_WAITS) group by WAIT_CLASS from V_$SYSTEM_EVENT.
 - lSYSTEM_EVENT_CLASS_TIME- SUM(TIME_WAITED_MICRO) group by WAIT_CLASS from V_$SYSTEM_EVENT and V_$SYS_TIME_MODEL.
