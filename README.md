@@ -142,6 +142,6 @@ and there's more to come.
 
 ## Support Oracle Database Version
 
-Oracle 19c
-Oracle 12c
-Oracle 11g(I believe it should work too.)
+- Oracle 19c
+- Oracle 12c
+- Oracle 11g(I believe it should work too.)
