@@ -18,6 +18,7 @@ kPerf is designed for monitoring Oracle in a specific way, focusing on performan
 1. [Features](#features)
 2. [Usage](#usage)
 3. [Installation](#installation)
+4. [Support Oracle Database Version](#OracleVersion)
 
 ---
 
@@ -138,3 +139,9 @@ and there's more to come.
         - You should not modify the structure of kPerf_Standalone, but you are allowed to rename it.
 		Example of execution:
 		python3.9 ./kPerf.py
+
+## Support Oracle Database Version
+
+Oracle 19c
+Oracle 12c
+Oracle 11g(I believe it should work too.)
