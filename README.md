@@ -18,7 +18,7 @@ kPerf is designed for monitoring Oracle in a specific way, focusing on performan
 1. [Features](#features)
 2. [Usage](#usage)
 3. [Installation](#installation)
-4. [Support Oracle Database Version](#OracleVersion)
+4. [Support Oracle Database Version](#oracleversion)
 
 ---
 
@@ -140,7 +140,7 @@ and there's more to come.
 		Example of execution:
 		python3.9 ./kPerf.py
 
-## Support Oracle Database Version
+## oracleversion
 
 - Oracle 19c
 - Oracle 12c
