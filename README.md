@@ -116,7 +116,7 @@ and there's more to come.
 	    INFO success: kPerf entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 	    INFO success: prometheus entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 
-	- Grafana URL:    http://Docker_IP:3000
+	- Grafana URL:    http://Docker_IP:3000  Default User: admin  Default Password: admin
 	- kPerf URL:   	http://Docker_IP:9180
 	- Prometheus URL: http://Docker_IP:9090/targets?search=
 	- Inside the container, logs are available in /var/log/supervisor.
