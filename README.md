@@ -92,7 +92,7 @@ and there's more to come.
 	#### kperf_Docker_Image
 		cd kperf_Docker_Image
 		podman load -i kperf.2.0.9.tar
-		Create a user in the Oracle database using createSQLuser.sql.
+		Create a user in the Oracle database using createSQLuser for non-CBD or Multitenant.
 		The file kPerfENV_Docker contains the parameters for running the container:
 		ORACLE_USER=c##kperf       --- Oracle user
 		ORACLE_PASSWORD=Test1234!  --- User password
