@@ -19,7 +19,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 2,
-  "id": 12,
+  "id": 17,
   "links": [],
   "panels": [
     {
@@ -847,9 +847,9 @@
     "list": [
       {
         "current": {
-          "selected": false,
-          "text": "KperfxLab",
-          "value": "KperfxLab"
+          "selected": true,
+          "text": "KperfxLabFREE",
+          "value": "KperfxLabFREE"
         },
         "datasource": {
           "type": "prometheus",
@@ -876,8 +876,8 @@
       {
         "current": {
           "selected": false,
-          "text": "1qqnc49rkynr4",
-          "value": "1qqnc49rkynr4"
+          "text": "cw1mnps0mfazc",
+          "value": "cw1mnps0mfazc"
         },
         "datasource": {
           "type": "prometheus",
@@ -905,8 +905,8 @@
       {
         "current": {
           "selected": false,
-          "text": "0",
-          "value": "0"
+          "text": "1224215794",
+          "value": "1224215794"
         },
         "datasource": {
           "type": "prometheus",
@@ -955,6 +955,6 @@
   "timezone": "browser",
   "title": "KPerf SQL details",
   "uid": "fe5vcl158hxj4f",
-  "version": 50,
+  "version": 1,
   "weekStart": ""
 }
