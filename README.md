@@ -2,7 +2,7 @@
 
 kPerf provides a graphical view of activity in Oracle Database.
 In the current implementation, statistics are collected at the instance level, including waits and some key statistics for sqlid:phv.
-kPerf is free to use but protected by Pyarmor with an integrated license that expires on 2025-08-02 yyyy.mm.dd.
+kPerf is free to use but protected by Pyarmor with an integrated license that expires on 2025-05-10.
 The license will be updated in the next release.
 kPerf is designed for monitoring Oracle in a specific way, focusing on performance rather than just sending warning emails. 
 1. Module: SQL and Wait Events: 
@@ -17,16 +17,15 @@ kPerf is designed for monitoring Oracle in a specific way, focusing on performan
 <img src="images/kPerfImages/dbsize/1 filter var.PNG" alt="DBSIZE Module filter">
 <img src="images/kPerfImages/dbsize/2 overview.PNG" alt="DBSIZE Module OverView">
 <img src="images/kPerfImages/dbsize/3 overview.PNG" alt="DBSIZE Module Overview">
----
+
 
 ## Table of Contents
 1. [Features](#features)
 2. [Usage](#usage)
 3. [Permissions](#permissions)
 4. [Installation](#installation)
+5. [Support Oracle Database Version](#support-oracle-database-version)
 5. [Contact](#contact)
-
----
 
 ## Features
 
@@ -167,7 +166,7 @@ and there's more to come.
 		cd kperf_Docker_Image
 		podman load -i kperf.2.1.0.tar
 		Create a user in the Oracle database using either createSQLuser_for_Multitenant.sql or createSQLuser_NonCDB.sql.
-		The file kPerfENV_Docker contains the parameters(### Config File Options) for running the container.
+		The file kPerfENV_Docker contains the parameters(Section: Config File Options) for running the container.
 		
 		Example of execution:
 		podman run -it --env-file kPerfENV_Docker -p 3000:3000 -p 9180:9180 -p 9090:9090 kperf:2.1.0
@@ -183,13 +182,19 @@ and there's more to come.
 		
 		cd kPerf_Standalone
 		pip3.9 install -r requirements.txt
-		Create a user in the Oracle database using createSQLuser.sql.
-		The kPerfENV file contains the startup parameters(### Config File Options).
+		Create a user in the Oracle database using either createSQLuser_for_Multitenant.sql or createSQLuser_NonCDB.sql.
+		The kPerfENV file contains the startup parameters(Section: Config File Options).
 				
         - To start kPerf.py, ensure you are in the kPerf_Standalone directory; otherwise, the kPerfENV file will not be read.
         - You should not modify the structure of kPerf_Standalone, but you are allowed to rename it.
 		Example of execution:
 		python3.9 ./kPerf.py
+
+ ## Support Oracle Database Version
+ - Oracle 23ai
+ - Oracle 19c
+ - Oracle 12c
+ - Oracle 11g(I believe it should work too.)
 
 ## Contact
  If you have any questions, feel free to contact me via: 
