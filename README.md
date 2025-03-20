@@ -2,7 +2,7 @@
 
 kPerf provides a graphical view of activity in Oracle Database.
 In the current implementation, statistics are collected at the instance level, including waits and some key statistics for sqlid:phv.
-kPerf is free to use but protected by Pyarmor with an integrated license that expires on 2025-05-10.
+kPerf is free to use but protected by Pyarmor with an integrated license that expires on 2025-08-01 yyyy.mm.dd.
 The license will be updated in the next release.
 kPerf is designed for monitoring Oracle in a specific way, focusing on performance rather than just sending warning emails. 
 1. Module: SQL and Wait Events: 
