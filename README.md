@@ -129,7 +129,7 @@ and there's more to come.
 
 ### Requirements
 
-  - Python >= 3.9
+  - Python = 3.9
   - target platforms: linux.x86_64
   - git-lfs
   - git
