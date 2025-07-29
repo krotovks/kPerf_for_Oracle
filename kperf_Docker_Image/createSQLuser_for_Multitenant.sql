@@ -1,3 +1,4 @@
+DROP USER c##kperf CASCADE;
 create user c##kperf identified by "Test1234!";
 grant create session to c##kperf;
 grant select on V_$SYSTEM_EVENT to c##kperf;

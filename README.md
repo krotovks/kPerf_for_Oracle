@@ -1,8 +1,8 @@
-# :fire: kPerf For Oracle :fire:
+# :fire: kPerf For Oracle 2.1.0:fire:
 
 kPerf provides a graphical view of activity in Oracle Database.
 In the current implementation, statistics are collected at the instance level, including waits and some key statistics for sqlid:phv.
-kPerf is free to use but protected by Pyarmor with an integrated license that expires on 2025-08-01 yyyy.mm.dd.
+kPerf is free to use but protected by Pyarmor with an integrated license that expires on 2026-03-01 yyyy.mm.dd.
 The license will be updated in the next release.
 kPerf is designed for monitoring Oracle in a specific way, focusing on performance rather than just sending warning emails. 
 1. Module: SQL and Wait Events: 
@@ -17,7 +17,7 @@ kPerf is designed for monitoring Oracle in a specific way, focusing on performan
 <img src="images/kPerfImages/dbsize/1 filter var.PNG" alt="DBSIZE Module filter">
 <img src="images/kPerfImages/dbsize/2 overview.PNG" alt="DBSIZE Module OverView">
 <img src="images/kPerfImages/dbsize/3 overview.PNG" alt="DBSIZE Module Overview">
-
+---
 
 ## Table of Contents
 1. [Features](#features)
@@ -25,7 +25,11 @@ kPerf is designed for monitoring Oracle in a specific way, focusing on performan
 3. [Permissions](#permissions)
 4. [Installation](#installation)
 5. [Support Oracle Database Version](#support-oracle-database-version)
-5. [Contact](#contact)
+6. [BUG](#BUG)
+7. [Info](#Info)
+8. [Contact](#contact)
+
+---
 
 ## Features
 
@@ -171,6 +175,7 @@ and there's more to come.
 		Example of execution:
 		podman run -it --env-file kPerfENV_Docker -p 3000:3000 -p 9180:9180 -p 9090:9090 kperf:2.1.0
 	- In case you have some problem with the container, you can check the log in the directory /var/log/supervisor inside the container.
+	- Use kPerfxLab job name in DashBoard.
 
 	- Grafana URL:    http://Docker_IP:3000  User:admin passwd: admin
 	- kPerf URL:   	http://Docker_IP:9180
@@ -196,9 +201,17 @@ and there's more to come.
  - Oracle 12c
  - Oracle 11g(I believe it should work too.)
 
+ ## BUG
+ - 1. Performance: You should have used a dedicated instance of kPerf to monitor DBSIZE. Please set ISSQLMODULE=False and monitor DBSIZE. Don't use both ISSQLMODULE and ISDBSIZE in one instance of kPerf.
+
+ ## Info
+ - Current release is 2.1.0. Minor bugs have been fixed. License has been extended until 2026-03-01 (yyyy.mm.dd). 29.07.2025
+ - New version 2.5.0 is coming. 29.07.2025. 29.07.2025
+
 ## Contact
  If you have any questions, feel free to contact me via: 
 - 📧 Email: krotovks [at] email [dot] com
 - 💬 Telegram: [@krotovks](https://t.me/username)
 - 🔗 LinkedIn: [Krotov Konstantin](https://www.linkedin.com/in/krotovks/)
 - :link: Blog: [My Blog](https://krotovks.com)  
+

@@ -1,4 +1,47 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "10.4.1"
+    },
+    {
+      "type": "panel",
+      "id": "piechart",
+      "name": "Pie chart",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -19,7 +62,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 2,
-  "id": 11,
+  "id": null,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -39,7 +82,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "xhc5cpa4z"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "SYSTEM_EVENT_CLASS",
       "fieldConfig": {
@@ -247,7 +290,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${vdsname}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -261,7 +304,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "xhc5cpa4z"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "sum(SYSTEM_EVENT_CLASS_TIME{lSYSTEM_EVENT_CLASS_TIME=~\"$SYSTEM_EVENT_CLASS_TIME\",job=\"$job\"})",
@@ -279,7 +322,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "xhc5cpa4z"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "Длительность каждого(одного) ожидания",
       "fieldConfig": {
@@ -369,7 +412,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${vdsname}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "SYSTEM_EVENT_WAIT_TIME_PER_EVENT{lSYSTEM_EVENT_WAIT_TIME_PER_EVENT=~\"$SYSTEM_EVENT_WAIT_TIME\",job=\"$job\"}",
@@ -382,7 +425,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "xhc5cpa4z"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "SYSTEM_EVENT_WAIT_COUT{lSYSTEM_EVENT_WAIT_COUNT='log file sync Kperf'}",
@@ -400,7 +443,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "xhc5cpa4z"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "SYSTEM_EVENT_CLASS",
       "fieldConfig": {
@@ -644,7 +687,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${vdsname}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "100*(SYSTEM_EVENT_CLASS_TIME{lSYSTEM_EVENT_CLASS_TIME=~\"$SYSTEM_EVENT_CLASS_TIME\",job=\"$job\"})/on() group_left() (sum(SYSTEM_EVENT_CLASS_TIME{lSYSTEM_EVENT_CLASS_TIME=~\"$SYSTEM_EVENT_CLASS_TIME\",job=\"$job\"}))",
@@ -656,7 +699,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "xhc5cpa4z"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "sum(SYSTEM_EVENT_CLASS_TIME{lSYSTEM_EVENT_CLASS_TIME=~\"$SYSTEM_EVENT_CLASS_TIME\",job=\"$job\"})",
@@ -674,7 +717,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "xhc5cpa4z"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "Количество   каждого ожидания(одного), за промежуток между снапшотами.  ",
       "fieldConfig": {
@@ -765,7 +808,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${vdsname}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "SYSTEM_EVENT_WAIT_COUT{lSYSTEM_EVENT_WAIT_COUNT=~\"$SYSTEM_EVENT_WAIT_COUNT\",job=\"$job\"}",
@@ -782,7 +825,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "xhc5cpa4z"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "SYSTEM_EVENT_CLASS",
       "fieldConfig": {
@@ -1037,7 +1080,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${vdsname}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -1052,7 +1095,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "xhc5cpa4z"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "sum(SYSTEM_EVENT_CLASS_TIME{lSYSTEM_EVENT_CLASS_TIME=~\"$SYSTEM_EVENT_CLASS_TIME\",job=\"$job\"})",
@@ -1070,7 +1113,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "xhc5cpa4z"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "Статистики из sysstat(количество коммитов, логонов, выполнений и тд) ",
       "fieldConfig": {
@@ -1160,7 +1203,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${vdsname}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "SYSSTAT{lSYSSTAT=~\"$SYSSTAT\",job=\"$job\"}",
@@ -1190,7 +1233,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "xhc5cpa4z"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1276,7 +1319,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "xhc5cpa4z"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "SQL_EXECUTIONS_PER_SEC{job=\"$job\"}",
@@ -1294,7 +1337,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "xhc5cpa4z"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1378,7 +1421,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "xhc5cpa4z"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "sum(SQL_EXECUTIONS_PER_SEC{job=\"$job\"})",
@@ -1395,7 +1438,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "xhc5cpa4z"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1479,7 +1522,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "xhc5cpa4z"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "SQL_BG_PER_SEC{job=\"$job\"}>0",
@@ -1496,7 +1539,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "xhc5cpa4z"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1580,7 +1623,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "xhc5cpa4z"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "SQL_BG_PER_EXEC{job=\"$job\"}",
@@ -1597,7 +1640,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "xhc5cpa4z"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1619,7 +1662,7 @@
             {
               "targetBlank": true,
               "title": "CPU per Exec",
-              "url": "d/fe5vcl158hxj4f/kperf-sql-details?orgId=1&var-vjob=$job&var-vSQLID=${__value.text}&from=now-30m&to=now"
+              "url": "d/fe5vcl158hxj4c/kperf-sql-details?orgId=1&var-vjob=$job&var-vSQLID=${__value.text}&from=now-30m&to=now"
             }
           ],
           "mappings": [],
@@ -1750,7 +1793,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "xhc5cpa4z"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -1769,7 +1812,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "xhc5cpa4z"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1792,7 +1835,7 @@
             {
               "targetBlank": true,
               "title": "USERIO",
-              "url": "/d/fe5vcl158hxj4f/kperf-sql-details?orgId=1&var-vjob=$job&var-vSQLID=${__value.text}&from=now-30m&to=now"
+              "url": "/d/fe5vcl158hxj4c/kperf-sql-details?orgId=1&var-vjob=$job&var-vSQLID=${__value.text}&from=now-30m&to=now"
             }
           ],
           "mappings": [],
@@ -1917,7 +1960,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "xhc5cpa4z"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -1935,7 +1978,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "xhc5cpa4z"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1958,7 +2001,7 @@
             {
               "targetBlank": true,
               "title": "appwait",
-              "url": "/d/fe5vcl158hxj4f/kperf-sql-details?orgId=1&var-vjob=$job&var-vSQLID=${__value.text}&from=now-30m&to=now"
+              "url": "/d/fe5vcl158hxj4c/kperf-sql-details?orgId=1&var-vjob=$job&var-vSQLID=${__value.text}&from=now-30m&to=now"
             }
           ],
           "mappings": [],
@@ -2083,7 +2126,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "xhc5cpa4z"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -2101,7 +2144,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "xhc5cpa4z"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2122,8 +2165,9 @@
           "fieldMinMax": false,
           "links": [
             {
+              "targetBlank": true,
               "title": "Concurecy",
-              "url": "/d/fe5vcl158hxj4f/kperf-sql-details?orgId=1&var-vjob=$job&var-vSQLID=${__value.text}&from=now-30m&to=now"
+              "url": "/d/fe5vcl158hxj4c/kperf-sql-details?orgId=1&var-vjob=$job&var-vSQLID=${__value.text}&from=now-30m&to=now"
             }
           ],
           "mappings": [],
@@ -2260,7 +2304,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "xhc5cpa4z"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -2278,7 +2322,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "xhc5cpa4z"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2301,7 +2345,7 @@
             {
               "targetBlank": true,
               "title": "",
-              "url": "/d/fe5vcl158hxj4f/kperf-sql-details?orgId=1&var-vjob=$job&var-vSQLID=${__value.text}&from=now-30m&to=now"
+              "url": "/d/fe5vcl158hxj4c/kperf-sql-details?orgId=1&var-vjob=$job&var-vSQLID=${__value.text}&from=now-30m&to=now"
             }
           ],
           "mappings": [],
@@ -2438,7 +2482,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "xhc5cpa4z"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -2456,7 +2500,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "xhc5cpa4z"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2479,7 +2523,7 @@
             {
               "targetBlank": true,
               "title": "SQL exec",
-              "url": "/d/fe5vcl158hxj4f/kperf-sql-details?orgId=1&var-vjob=$job&var-vSQLID=${__value.text}&from=now-30m&to=now"
+              "url": "/d/fe5vcl158hxj4c/kperf-sql-details?orgId=1&var-vjob=$job&var-vSQLID=${__value.text}&from=now-30m&to=now"
             }
           ],
           "mappings": [],
@@ -2616,7 +2660,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "xhc5cpa4z"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -2632,20 +2676,16 @@
       "type": "table"
     }
   ],
-  "refresh": "2s",
+  "refresh": "",
   "schemaVersion": 39,
   "tags": [],
   "templating": {
     "list": [
       {
-        "current": {
-          "selected": false,
-          "text": "KperfxLab",
-          "value": "KperfxLab"
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "xhc5cpa4z"
+          "uid": "${DS_PROMETHEUS}"
         },
         "definition": "label_values(job)",
         "hide": 0,
@@ -2660,25 +2700,17 @@
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
-        "regex": "/.*Kperf*./",
+        "regex": "/.*kPerf*./",
         "skipUrlSync": false,
         "sort": 0,
         "type": "query"
       },
       {
         "allValue": "",
-        "current": {
-          "selected": true,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "xhc5cpa4z"
+          "uid": "${DS_PROMETHEUS}"
         },
         "definition": "label_values(lSYSTEM_EVENT_CLASS)",
         "description": "Name of the wait class of the wait event and sum TOTAL_WAITS.",
@@ -2701,18 +2733,10 @@
       },
       {
         "allValue": "",
-        "current": {
-          "selected": true,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "xhc5cpa4z"
+          "uid": "${DS_PROMETHEUS}"
         },
         "definition": "label_values(lSYSTEM_EVENT_WAIT_COUNT)",
         "description": "Name of the wait even and wait count",
@@ -2734,18 +2758,10 @@
         "type": "query"
       },
       {
-        "current": {
-          "selected": true,
-          "text": [
-            "log file parallel write Kperf"
-          ],
-          "value": [
-            "log file parallel write Kperf"
-          ]
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "xhc5cpa4z"
+          "uid": "${DS_PROMETHEUS}"
         },
         "definition": "label_values(lSYSTEM_EVENT_WAIT_TIME_PER_EVENT)",
         "description": "Name of the wait event and wait time per event",
@@ -2768,18 +2784,10 @@
       },
       {
         "allValue": "",
-        "current": {
-          "selected": true,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "xhc5cpa4z"
+          "uid": "${DS_PROMETHEUS}"
         },
         "definition": "label_values(lSYSSTAT)",
         "description": "SYSSTAT",
@@ -2802,18 +2810,10 @@
       },
       {
         "allValue": "",
-        "current": {
-          "selected": true,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "xhc5cpa4z"
+          "uid": "${DS_PROMETHEUS}"
         },
         "definition": "label_values(lSYSTEM_EVENT_CLASS_TIME)",
         "description": "Name of the wait class of the wait CLASS and Amount of time (in microseconds) that the system has spent in this operation",
@@ -2833,12 +2833,31 @@
         "skipUrlSync": false,
         "sort": 0,
         "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "Prometheus",
+          "value": "xhc5cpa4z"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "vdsname",
+        "multi": false,
+        "name": "vdsname",
+        "options": [],
+        "query": "prometheus",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
       }
     ]
   },
   "time": {
-    "from": "now-5m",
-    "to": "now"
+    "from": "2025-07-29T05:22:35.360Z",
+    "to": "2025-07-29T05:29:06.794Z"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -2857,8 +2876,8 @@
     ]
   },
   "timezone": "",
-  "title": "Kperf Monitor",
-  "uid": "ee5sjt8tx5rlse",
-  "version": 67,
+  "title": "kPerf Monitor",
+  "uid": "ee5sjt8tx5rlsc",
+  "version": 17,
   "weekStart": ""
 }

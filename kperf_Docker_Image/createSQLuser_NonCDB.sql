@@ -1,3 +1,4 @@
+DROP USER kperf CASCADE;
 create user kperf identified by "Test1234!";
 grant create session to kperf;
 grant select on V_$SYSTEM_EVENT to kperf;
