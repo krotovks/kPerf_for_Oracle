@@ -206,7 +206,7 @@ and there's more to come.
 
  ## Info
  - Current release is 2.1.0. Minor bugs have been fixed. License has been extended until 2026-03-01 (yyyy.mm.dd). 29.07.2025
- - New version 2.5.0 is coming. 29.07.2025. 29.07.2025
+ - New version 2.5.0 is coming. 29.07.2025.
 
 ## Contact
  If you have any questions, feel free to contact me via: 
