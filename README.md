@@ -203,7 +203,7 @@ and there's more to come.
 
  ## BUG
  - 1. Performance: You should have used a dedicated instance of kPerf to monitor DBSIZE. Please set ISSQLMODULE=False and monitor DBSIZE. Don't use both ISSQLMODULE and ISDBSIZE in one instance of kPerf.
-
+ - 2. SQLID for cbd database. 12.08.2025.
  ## Info
  - Current release is 2.1.0. Minor bugs have been fixed. License has been extended until 2026-03-01 (yyyy.mm.dd). 29.07.2025
  - New version 2.5.0 is coming. 29.07.2025.
