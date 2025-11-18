@@ -1,3 +1,5 @@
 oracledb
 prometheus_client
 python-dotenv
+pandas
+requests

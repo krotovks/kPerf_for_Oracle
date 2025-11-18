@@ -1,35 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_PROMETHEUS",
-      "label": "Prometheus",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
-  "__elements": {},
-  "__requires": [
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "10.4.1"
-    },
-    {
-      "type": "datasource",
-      "id": "prometheus",
-      "name": "Prometheus",
-      "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "timeseries",
-      "name": "Time series",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -46,18 +15,367 @@
       }
     ]
   },
-  "description": "kPerf SQL details",
+  "description": "KPerf SQL details",
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 2,
-  "id": null,
+  "id": 70,
   "links": [],
   "panels": [
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${dsname}"
       },
+      "description": "Use SqlWait Filter",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "mode": "lcd",
+              "type": "gauge",
+              "valueDisplayMode": "text"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "fieldMinMax": false,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "SQL Detail",
+              "url": "d/kperfsessionv250/kperf-session?orgId=1&var-SQLID=${__data.fields.SQLID}&var-sid=${__data.fields.SID}&var-job=$vsqlwait&from=${__from}&to=${__to}"
+            }
+          ],
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "noValue": "Na",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "SID"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "json-view"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 95
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "EVENT"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "json-view"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 242
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "SQLID"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "auto"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 164
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "OPT"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "json-view"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 74
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time Spent"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "auto"
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "auto"
+                }
+              },
+              {
+                "id": "unit",
+                "value": "ms"
+              },
+              {
+                "id": "custom.width",
+                "value": 141
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time Spent %"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "gauge"
+                }
+              },
+              {
+                "id": "decimals",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "User Name"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "json-view"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 19,
+        "x": 0,
+        "y": 0
+      },
+      "id": 9,
+      "interval": "$snapinterval",
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": false,
+          "fields": [],
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 1,
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Time Spent %"
+          }
+        ]
+      },
+      "pluginVersion": "10.4.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${dsname}"
+          },
+          "editorMode": "code",
+          "expr": "label_join(\r\n  sum(sum_over_time(SESSION_DELTA_EVENTS_TIME {job=\"$vsqlwait\", SQLID=~\"$SQLID\"} [$__range])) by(SQLID,EVENT,USERNAME,SID)\r\n,\"join_key\",\"_\",\"SQLID\",\"EVENT\",\"USERNAME\",\"SID\")",
+          "format": "table",
+          "hide": false,
+          "instant": false,
+          "interval": "$minstep",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${dsname}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "label_join(100 *\r\nsum(sum_over_time(SESSION_DELTA_EVENTS_TIME{job=\"$vsqlwait\",SQLID=~\"$SQLID\"} [$__range])) by (SQLID,EVENT,USERNAME,SID)\r\n/\r\nscalar(sum(sum_over_time(SESSION_DELTA_EVENTS_TIME{job=\"$vsqlwait\",SQLID=~\"$SQLID\"} [$__range]))),\"join_key\",\"_\", \"SQLID\",\"EVENT\",\"USERNAME\",\"SID\")",
+          "format": "table",
+          "hide": false,
+          "instant": false,
+          "interval": "$minstep",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Session SQL Spent TIme, ${__from:date:YYYY-MM-DD HH:mm:ss} → ${__to:date:YYYY-MM-DD HH:mm:ss}  set SqlWait accordingly",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "join_key",
+            "mode": "inner"
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "COMMAND_NAME": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "COMMAND_NAME 1": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "EVENT": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "EVENT 1": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "SID": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "SID 1": {
+                "aggregations": [],
+                "operation": "aggregate"
+              },
+              "SQLID": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "USERNAME": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "groupby"
+              },
+              "USERNAME 2": {
+                "aggregations": [],
+                "operation": "aggregate"
+              },
+              "Value #A": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "Value #B": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              }
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "COMMAND_NAME 2": true,
+              "EVENT 2": true,
+              "SID 2": true,
+              "SQLID 2": true,
+              "USERNAME (last) 1": true,
+              "USERNAME 2": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "EVENT 1": 1,
+              "EVENT 2": 2,
+              "SQLID 1": 0,
+              "SQLID 2": 3,
+              "Value #A (last)": 4,
+              "Value #B (last)": 5
+            },
+            "renameByName": {
+              "COMMAND_NAME 1": "OPT",
+              "EVENT 1": "EVENT",
+              "SID 1": "SID",
+              "SQLID 1": "SQLID",
+              "USERNAME (last) 1": "",
+              "USERNAME (last) 2": "User Name",
+              "USERNAME 1": "User Name",
+              "Value #A (last)": "Time Spent",
+              "Value #B (last)": "Time Spent %"
+            }
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${dsname}"
+      },
+      "description": "Buffer gets per sec. SQLID=\"$SQLID\",PHV=\"$vPHV\"",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -117,9 +435,10 @@
         "h": 10,
         "w": 6,
         "x": 0,
-        "y": 0
+        "y": 10
       },
       "id": 1,
+      "interval": "$snapinterval",
       "options": {
         "legend": {
           "calcs": [
@@ -141,25 +460,27 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${dsname}"
           },
           "editorMode": "code",
-          "expr": "SQL_BG_PER_SEC{job=~\"$vjob\",SQLID=\"$vSQLID\",PHV=\"$vPHV\"}",
+          "expr": "SQL_BG_PER_SEC{job=~\"$vjob\",SQLID=~\"$SQLID\",PHV=~\"$vPHV\"}",
           "instant": false,
+          "interval": "$minstep",
           "legendFormat": "SQLID: {{SQLID}} PHV:{{PHV}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "Buffer gets per sec",
+      "title": "Buffer gets per sec. SQLID=\"$SQLID\",PHV=\"$vPHV\".",
       "transparent": true,
       "type": "timeseries"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${dsname}"
       },
+      "description": "Buffer gets per Exec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -219,9 +540,10 @@
         "h": 10,
         "w": 6,
         "x": 6,
-        "y": 0
+        "y": 10
       },
       "id": 3,
+      "interval": "$snapinterval",
       "options": {
         "legend": {
           "calcs": [
@@ -243,25 +565,27 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${dsname}"
           },
           "editorMode": "code",
-          "expr": "SQL_BG_PER_EXEC{job=~\"$vjob\",SQLID=\"$vSQLID\",PHV=\"$vPHV\"}",
+          "expr": "SQL_BG_PER_EXEC{job=~\"$vjob\",SQLID=~\"$SQLID\",PHV=~\"$vPHV\"}",
           "instant": false,
+          "interval": "$minstep",
           "legendFormat": "SQLID: {{SQLID}} PHV: {{PHV}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "Buffer gets per Exec",
+      "title": "Buffer gets per Exec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
       "transparent": true,
       "type": "timeseries"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${dsname}"
       },
+      "description": "SQL exec per sec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -321,9 +645,10 @@
         "h": 10,
         "w": 6,
         "x": 12,
-        "y": 0
+        "y": 10
       },
       "id": 4,
+      "interval": "$snapinterval",
       "options": {
         "legend": {
           "calcs": [
@@ -345,25 +670,27 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${dsname}"
           },
           "editorMode": "code",
-          "expr": "SQL_EXECUTIONS_PER_SEC{job=~\"$vjob\",SQLID=\"$vSQLID\",PHV=\"$vPHV\"}",
+          "expr": "SQL_EXECUTIONS_PER_SEC{job=~\"$vjob\",SQLID=~\"$SQLID\",PHV=~\"$vPHV\"}",
           "instant": false,
+          "interval": "$minstep",
           "legendFormat": "SQLID: {{SQLID}} PHV:{{PHV}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "SQL exec per sec",
+      "title": "SQL exec per sec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
       "transparent": true,
       "type": "timeseries"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${dsname}"
       },
+      "description": "SQL CPU Time per exec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -423,9 +750,10 @@
         "h": 10,
         "w": 6,
         "x": 18,
-        "y": 0
+        "y": 10
       },
       "id": 6,
+      "interval": "$snapinterval",
       "options": {
         "legend": {
           "calcs": [
@@ -447,25 +775,27 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${dsname}"
           },
           "editorMode": "code",
-          "expr": "CPU_PER_EXEC{job=~\"$vjob\",SQLID=\"$vSQLID\",PHV=\"$vPHV\"}",
+          "expr": "SQL_CPU_TIME_PER_EXEC{job=~\"$vjob\",SQLID=~\"$SQLID\",PHV=~\"$vPHV\"}",
           "instant": false,
+          "interval": "$minstep",
           "legendFormat": "SQLD: {{SQLID}} PHV: {{PHV}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "SQL CPU Time per exec",
+      "title": "SQL CPU Time per exec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
       "transparent": true,
       "type": "timeseries"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${dsname}"
       },
+      "description": "SQL User IO Wait Per Exec. SQLID=\"$SQLID\",PHV=\"$vPHV\"",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -525,9 +855,10 @@
         "h": 10,
         "w": 6,
         "x": 0,
-        "y": 10
+        "y": 20
       },
       "id": 5,
+      "interval": "$snapinterval",
       "options": {
         "legend": {
           "calcs": [
@@ -549,25 +880,27 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${dsname}"
           },
           "editorMode": "code",
-          "expr": "USERIOWAIT_PER_EXEC{job=~\"$vjob\",SQLID=\"$vSQLID\",PHV=\"$vPHV\"}",
+          "expr": "SQL_IO_TIME_PER_EXEC{job=~\"$vjob\",SQLID=~\"$SQLID\",PHV=~\"$vPHV\"}",
           "instant": false,
+          "interval": "$minstep",
           "legendFormat": "SQLID: {{SQLID}} PHV:{{PHV}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "SQL User IO Wait Per Exec",
+      "title": "SQL User IO Wait Per Exec. SQLID=\"$SQLID\",PHV=\"$vPHV\"",
       "transparent": true,
       "type": "timeseries"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${dsname}"
       },
+      "description": "SQL Elapsed time per Exec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -627,9 +960,10 @@
         "h": 10,
         "w": 6,
         "x": 6,
-        "y": 10
+        "y": 20
       },
       "id": 7,
+      "interval": "$snapinterval",
       "options": {
         "legend": {
           "calcs": [
@@ -651,26 +985,27 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${dsname}"
           },
           "editorMode": "code",
-          "expr": "ELA_PER_EXEC{job=~\"$vjob\",SQLID=\"$vSQLID\",PHV=\"$vPHV\"}",
+          "expr": "SQL_ELA_PER_EXEC{job=~\"$vjob\",SQLID=~\"$SQLID\",PHV=~\"$vPHV\"}",
           "instant": false,
+          "interval": "$minstep",
           "legendFormat": "SQLID: {{SQLID}} PHV: {{PHV}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "Elapsed time per Exec",
+      "title": "SQL Elapsed time per Exec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
       "transparent": true,
       "type": "timeseries"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${dsname}"
       },
-      "description": "",
+      "description": "SQL CONCURRENTCY Wait Time per exec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -730,7 +1065,7 @@
         "h": 10,
         "w": 6,
         "x": 12,
-        "y": 10
+        "y": 20
       },
       "id": 2,
       "options": {
@@ -754,25 +1089,27 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${dsname}"
           },
           "editorMode": "code",
-          "expr": "CONCURRENTCY_PER_EXEC{job=~\"$vjob\",SQLID=\"$vSQLID\",PHV=\"$vPHV\"}",
+          "expr": "SQL_CONCUR_PER_EXEC {job=~\"$vjob\",SQLID=~\"$SQLID\",PHV=~\"$vPHV\"}",
           "instant": false,
+          "interval": "$minstep",
           "legendFormat": "SQLD: {{SQLID}} PHV: {{PHV}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "SQL CONCURRENTCY Wait Time per exec",
+      "title": "SQL CONCURRENTCY Wait Time per exec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
       "transparent": true,
       "type": "timeseries"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "${dsname}"
       },
+      "description": "SQL App Wait Time per exec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -832,9 +1169,10 @@
         "h": 10,
         "w": 6,
         "x": 18,
-        "y": 10
+        "y": 20
       },
       "id": 8,
+      "interval": "$snapinterval",
       "options": {
         "legend": {
           "calcs": [
@@ -856,36 +1194,40 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${dsname}"
           },
           "editorMode": "code",
-          "expr": "APPWAIT_PER_EXEC{job=~\"$vjob\",SQLID=\"$vSQLID\",PHV=\"$vPHV\"}",
+          "expr": "SQL_APPWAIT_PER_EXEC {job=~\"$vjob\",SQLID=~\"$SQLID\",PHV=~\"$vPHV\"}",
           "instant": false,
+          "interval": "$minstep",
           "legendFormat": "SQLD: {{SQLID}} PHV: {{PHV}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "SQL App Wait Time per exec",
+      "title": "SQL App Wait Time per exec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
       "transparent": true,
       "type": "timeseries"
     }
   ],
-  "refresh": "2s",
   "schemaVersion": 39,
   "tags": [],
   "templating": {
     "list": [
       {
-        "current": {},
+        "current": {
+          "selected": false,
+          "text": "Kperf-Monitor",
+          "value": "Kperf-Monitor"
+        },
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "${dsname}"
         },
         "definition": "label_values(job)",
         "hide": 0,
         "includeAll": false,
-        "label": "job",
+        "label": "SQL Stat job",
         "multi": false,
         "name": "vjob",
         "options": [],
@@ -894,25 +1236,33 @@
           "query": "label_values(job)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
-        "refresh": 1,
-        "regex": "/.*kPerf*./",
+        "refresh": 2,
+        "regex": "/.*Kperf-Monitor*./",
         "skipUrlSync": false,
-        "sort": 0,
+        "sort": 1,
         "type": "query"
       },
       {
-        "current": {},
+        "current": {
+          "selected": true,
+          "text": [
+            "1-7r0kgzntdn7sq"
+          ],
+          "value": [
+            "1-7r0kgzntdn7sq"
+          ]
+        },
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "${dsname}"
         },
         "definition": "label_values({job=\"$vjob\"},SQLID)",
         "description": "SQL ID",
         "hide": 0,
         "includeAll": false,
         "label": "SQLID",
-        "multi": false,
-        "name": "vSQLID",
+        "multi": true,
+        "name": "SQLID",
         "options": [],
         "query": {
           "qryType": 1,
@@ -922,16 +1272,24 @@
         "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
-        "sort": 0,
+        "sort": 1,
         "type": "query"
       },
       {
-        "current": {},
+        "current": {
+          "selected": true,
+          "text": [
+            "1739125356"
+          ],
+          "value": [
+            "1739125356"
+          ]
+        },
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "${dsname}"
         },
-        "definition": "label_values({SQLID=\"$vSQLID\"},PHV)",
+        "definition": "label_values({SQLID=~\"$SQLID\"},PHV)",
         "description": "SQL Plan Hashe Value",
         "hide": 0,
         "includeAll": false,
@@ -941,13 +1299,13 @@
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values({SQLID=\"$vSQLID\"},PHV)",
+          "query": "label_values({SQLID=~\"$SQLID\"},PHV)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
-        "refresh": 1,
+        "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
-        "sort": 0,
+        "sort": 1,
         "type": "query"
       },
       {
@@ -958,21 +1316,195 @@
         },
         "hide": 0,
         "includeAll": false,
-        "label": "vdsname",
+        "label": "ds_name",
         "multi": false,
-        "name": "vdsname",
+        "name": "dsname",
         "options": [],
         "query": "prometheus",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
         "type": "datasource"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "1ms",
+          "value": "1ms"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Min Step",
+        "multi": false,
+        "name": "minstep",
+        "options": [
+          {
+            "selected": true,
+            "text": "1ms",
+            "value": "1ms"
+          },
+          {
+            "selected": false,
+            "text": "10ms",
+            "value": "10ms"
+          },
+          {
+            "selected": false,
+            "text": "100ms",
+            "value": "100ms"
+          },
+          {
+            "selected": false,
+            "text": "300ms",
+            "value": "300ms"
+          },
+          {
+            "selected": false,
+            "text": "500ms",
+            "value": "500ms"
+          },
+          {
+            "selected": false,
+            "text": "1s",
+            "value": "1s"
+          },
+          {
+            "selected": false,
+            "text": "2s",
+            "value": "2s"
+          },
+          {
+            "selected": false,
+            "text": "3s",
+            "value": "3s"
+          },
+          {
+            "selected": false,
+            "text": "4s",
+            "value": "4s"
+          },
+          {
+            "selected": false,
+            "text": "5s",
+            "value": "5s"
+          },
+          {
+            "selected": false,
+            "text": "10s",
+            "value": "10s"
+          }
+        ],
+        "query": "1ms,10ms,100ms,300ms,500ms,1s,2s,3s,4s,,5s,10s",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "1s",
+          "value": "1s"
+        },
+        "description": "",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Snap Interval",
+        "multi": false,
+        "name": "snapinterval",
+        "options": [
+          {
+            "selected": true,
+            "text": "1s",
+            "value": "1s"
+          },
+          {
+            "selected": false,
+            "text": "2s",
+            "value": "2s"
+          },
+          {
+            "selected": false,
+            "text": "3s",
+            "value": "3s"
+          },
+          {
+            "selected": false,
+            "text": "4s",
+            "value": "4s"
+          },
+          {
+            "selected": false,
+            "text": "5s",
+            "value": "5s"
+          },
+          {
+            "selected": false,
+            "text": "6s",
+            "value": "6s"
+          },
+          {
+            "selected": false,
+            "text": "7s",
+            "value": "7s"
+          },
+          {
+            "selected": false,
+            "text": "8s",
+            "value": "8s"
+          },
+          {
+            "selected": false,
+            "text": "9s",
+            "value": "9s"
+          },
+          {
+            "selected": false,
+            "text": "10s",
+            "value": "10s"
+          },
+          {
+            "selected": false,
+            "text": "20s",
+            "value": "20s"
+          }
+        ],
+        "query": "1s,2s,3s,4s,5s,6s,7s,8s,9s,10s,20s",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "Kperf-Session",
+          "value": "Kperf-Session"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${dsname}"
+        },
+        "definition": "label_values(job)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "SqlWait",
+        "multi": false,
+        "name": "vsqlwait",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(job)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 2,
+        "regex": "/.*Kperf-Session*./",
+        "skipUrlSync": false,
+        "sort": 1,
+        "type": "query"
       }
     ]
   },
   "time": {
-    "from": "now-6h",
-    "to": "now"
+    "from": "2025-11-18T04:02:27.030Z",
+    "to": "2025-11-18T04:07:27.030Z"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -990,8 +1522,8 @@
     ]
   },
   "timezone": "browser",
-  "title": "kPerf SQL details",
-  "uid": "fe5vcl158hxj4c",
-  "version": 8,
+  "title": "KPerf SQL details",
+  "uid": "kperfsqldetailv250",
+  "version": 2,
   "weekStart": ""
 }

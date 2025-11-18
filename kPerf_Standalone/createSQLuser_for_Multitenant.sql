@@ -1,10 +1,15 @@
-DROP USER c##kperf CASCADE;
+drop user c##kperf cascade;
 create user c##kperf identified by "Test1234!";
 grant create session to c##kperf;
 grant select on V_$SYSTEM_EVENT to c##kperf;
 grant select on v_$sysstat to c##kperf;
 grant select on v_$sqlarea to c##kperf;
+grant select on V_$SESSTAT to c##kperf;
 grant select on V_$SYS_TIME_MODEL to c##kperf;
+grant select on V_$SESS_TIME_MODEL to c##kperf;
 grant select on cdb_segments to c##kperf;
 grant select on cdb_data_files to c##kperf;
+grant select on v_$session to c##kperf;
+grant select on v_$sqlcommand to c##kperf;
+grant select on v_$session_event to c##kperf;
 ALTER USER c##kperf set container_data=all container = current;
