@@ -204,8 +204,11 @@ and there's more to come.
         - You should not modify the structure of kPerf_Standalone, but you are allowed to rename it.
 		Example of execution:
 		python3.11 ./kPerf.py
-	
-	Next, configure your Prometheus using the PORTs parameters from kPerfENV.cfg accordingly. 
+	To use link and logic in Dashboards use configure job names in Prometeus as:
+	1. - For Module: InstanceWaitStat&SQL(parameter HTTPPORT):  %Kperf-Monitor%
+    2. - For Module: SESSION (parameter HTTPPORTSESS): %Kperf-Session%
+    3. - For Module: DBSIZE (parameter HTTPPORTDBSIZE) %Kperf-DBSIZE%
+	4. - Next, configure your Prometheus using the PORTs parameters from kPerfENV.cfg accordingly. 
     Remember, the trigger for collecting and calculating metrics is the scrape_interval in your prometheus.yml, another word as often as the scrape_interval value.
  ## Support Oracle Database Version
  - Oracle 23ai
