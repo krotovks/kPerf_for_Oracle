@@ -46,7 +46,7 @@ kPerf is designed for monitoring Oracle in a specific way, focusing on performan
 - The password for the user will be encrypted and stored in the config file.
 - kPerf operates in a true PULL mode to improve precision.
 What does this mean? It means that all metrics for all modules begin to be collected only when someone performs a GET request.
-- Metrics have several labels (dimensions), and you can join them with another metric and filter them.
+- Metrics have several labels (dimensions), and you can join them with other metric and filter them.
 
 All collected data is processed in kPerf(Python).
 The collected data is stored in Prometheus.
