@@ -77,7 +77,8 @@ Real-World Use Cases of kPerf:
 - [Log file sync switching to post/wait.](https://krotovks.com/2023/02/21/log-file-sync-switching-to-post-wait-eng/)
 
 ***
--  :white_check_mark: InstanceWaitStat&SQL MODULE Description:
+## Module: InstanceWaitStat&SQL.
+
 -  <img src="images/kPerfImages/GrafVarEvents.png" alt="Select various types of database waits">
 -  <img src="images/kPerfImages/sysEvent.png" alt="System Events">
 
@@ -93,7 +94,7 @@ Real-World Use Cases of kPerf:
 -  **You can filter and join metrics by variety of labels.**
 
 
-***
+## Module: SQL details.
 -  <img src="images/kPerfImages/SQLmoduleDeepLevel_varible.png" alt="SQL Module Level SQLID PHV">
 -  SQLID is clickable. SQLID format is "ConID-SQL_ID", e.g. 1-1ggnc49rkynr4: Container ID-1, SQL_ID- 1ggnc49rkynr4
 -  <img src="images/kPerfImages/SQLmodule_SQLID.png" alt="SQL Module">
@@ -120,7 +121,20 @@ Real-World Use Cases of kPerf:
 -  **You can filter and join metrics by variety of labels.**
 ***
 
-- :white_check_mark: DBSIZE MODULE Description:
+## Module: SESSION
+
+-  <img src="images/kPerfImages/session/session1.PNG" alt="Session Module Overview">
+-  SID format is "ConID-SID-Serial", e.g. 2-45-3355 is Container ID-2, SID-45, Serial-3355
+
+| Metric Name		             | Labels                                                                              | Description                                        | Comment |  
+|---------------------------|-------------------------------------------------------------------------------------|----------------------------------------------------|---------------|
+| ACTIVE_SESSION_STATUS     | SID, USERNAME, WAITCLASS, KJOB	                                                     | Active Session State                               |                              |
+| SESSION_DELTA_EVENTS_TIME | SID, USERNAME, PROGRAM, COMMAND_NAME, MACHINE, SQLID, STATE, WAITCLASS, EVENT, KJOB | Delta of time waited (in milliseconds) the session |                                |
+| SESSION_DELTA_WAIT_EVENTS | SID, USERNAME, PROGRAM, COMMAND_NAME, MACHINE, SQLID, STATE, WAITCLASS, EVENT, KJOB | Delta of Wait Events                               | 
+
+***
+
+## DBSIZE MODULE:
 -  You can filter Object Size by five parameters: labelnames=['TABLESPACE','OWNER','SEGMENT_NAME','SEGMENT_TYPE','PARTITION_NAME']
 -  for Multitenant labelnames=['CONID','TABLESPACE','OWNER','SEGMENT_NAME','SEGMENT_TYPE','PARTITION_NAME']
 - <img src="images/kPerfImages/dbsize/1 filter var.PNG" alt="DBSIZE Module filter">
