@@ -77,7 +77,7 @@ Real-World Use Cases of kPerf:
 - [Log file sync switching to post/wait.](https://krotovks.com/2023/02/21/log-file-sync-switching-to-post-wait-eng/)
 
 ***
-## Module: InstanceWaitStat&SQL.
+## Module: InstanceWaitStat&SQL
 
 -  <img src="images/kPerfImages/GrafVarEvents.png" alt="Select various types of database waits">
 -  <img src="images/kPerfImages/sysEvent.png" alt="System Events">
@@ -94,7 +94,7 @@ Real-World Use Cases of kPerf:
 -  **You can filter and join metrics by variety of labels.**
 
 
-## Module: SQL details.
+## Module: SQL details
 -  <img src="images/kPerfImages/SQLmoduleDeepLevel_varible.png" alt="SQL Module Level SQLID PHV">
 -  SQLID is clickable. SQLID format is "ConID-SQL_ID", e.g. 1-1ggnc49rkynr4: Container ID-1, SQL_ID- 1ggnc49rkynr4
 -  <img src="images/kPerfImages/SQLmodule_SQLID.png" alt="SQL Module">
@@ -134,16 +134,16 @@ Real-World Use Cases of kPerf:
 
 ***
 
-## DBSIZE MODULE:
+## Module: DBSIZE
 -  You can filter Object Size by five parameters: labelnames=['TABLESPACE','OWNER','SEGMENT_NAME','SEGMENT_TYPE','PARTITION_NAME']
 -  for Multitenant labelnames=['CONID','TABLESPACE','OWNER','SEGMENT_NAME','SEGMENT_TYPE','PARTITION_NAME']
 - <img src="images/kPerfImages/dbsize/1 filter var.PNG" alt="DBSIZE Module filter">
 - <img src="images/kPerfImages/dbsize/2 overview.PNG" alt="DBSIZE Module OverView">
 
-| Metric Name		  | Description | Comment |  
-| ------------------- | ------------|---------------|
-| DB_OBJECT_SIZE |	Database objects size in bytes | |
-| DB_DATAFILE_SIZE | Database Data File size in byte | |
+| Metric Name		  | Labels                                                               | Description | Comment |  
+| ------------------- |----------------------------------------------------------------------| ------------|---------------|
+| DB_OBJECT_SIZE | CONID, TABLESPACE, OWNER, SEGMENT_NAME, SEGMENT_TYPE, PARTITION_NAME |	Database objects size in bytes | |
+| DB_DATAFILE_SIZE | CONID, TABLESPACE, FILE_ID , STATUS                                  | Database Data File size in byte | |
 -  **You can filter and join metrics by variety of labels.**
 ---------------------------------------------------------------------------------
 
