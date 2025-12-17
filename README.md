@@ -173,6 +173,7 @@ and there's more to come.
 
   - **Python = 3.11**
   - target platforms: linux.x86_64
+  - Grafana Version: grafana-10.4.19-security_01-1.x86_64
   - kPerf_Standalone/requirements.txt
 
 ## Config File Options
@@ -231,6 +232,12 @@ and there's more to come.
 
  ## BUG
  - Lack of documentation. The documentation is under development and will be released soon.
+ - An Out of Memory error occurred in the browser on the "KPerf SQL Details" Grafana dashboard. Version: 
+    - grafana-enterprise-12.3.0-1.x86_64
+    - grafana-11.6.9-1.x86_64
+    - grafana-11.3.5-security_01-1.x86_64 
+    - grafana-11.2.10-security_01-1.x86_64 
+    - grafana-11.1.13-1.x86_64 
 
  ## Info
  - Current Version 2.5.0. 
