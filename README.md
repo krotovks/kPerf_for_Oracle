@@ -1,10 +1,14 @@
-# kPerf For Oracle 2.5.0
+# kPerf For Oracle 2.5.1
 
 kPerf provides a graphical view of activity in Oracle Database.
 In the current implementation, statistics are collected at **the instance level** and **session level**, including waits, statistics for sqlid:phv and sessions.
 kPerf is free to use but protected by Pyarmor with an integrated license, check the [Info](#Info).
 The license will be updated in the next release.
 kPerf is designed for monitoring Oracle in a specific way, focusing on performance rather than just sending warning emails. 
+
+- [Short Demo](https://youtu.be/gw2DuXm1W5Y) 
+- In version 2.5.1, SQLTEXT was added, along with the ability to connect to the database using a TNS alias.
+
 1. Module: InstanceWaitStat&SQL: 
 <img src="images/kPerfImages/sysEvent.png" alt="System Events">
 <img src="images/kPerfImages/GrafVarEvents.png" alt="Select various types of database waits">
@@ -13,7 +17,7 @@ kPerf is designed for monitoring Oracle in a specific way, focusing on performan
 <img src="images/kPerfImages/SQLmoduleDeepLevel.png" alt="SQL Module Level ">
 <img src="images/kPerfImages/SQLmoduleDeepLevel_varible.png" alt="SQL Module Level SQLID PHV">
 2. Module: SQL details
-<img src="images/kPerfImages/sqldetail/sql1.PNG" alt="DBSIZE Module filter">
+<img src="images/kPerfImages/sqldetail/sql1.PNG" alt="SQL Module filter">
 
 3. Module: SESSION
 <img src="images/kPerfImages/session/session_var1.PNG" alt="Session Module Filter">
@@ -100,23 +104,23 @@ Real-World Use Cases of kPerf:
 -  <img src="images/kPerfImages/SQLmodule_SQLID.png" alt="SQL Module">
 
 
-| Metric Name		          | Labels          | Description                                                                       | Comment                                     |  
-|------------------------|-----------------|-----------------------------------------------------------------------------------|---------------------------------------------|
-| SQL_ELA_PER_EXEC       | SQLID,PHV,KJOB  | Elapsed time per execution (μs) for SQL ID and specific plan hash value.          |                                             |
-| SQL_CPU_TIME_PER_EXEC  | SQLID,PHV,KJOB  | CPU Time per execution (μs) for SQL ID and specific plan hash value.              | on CPU	                                     |
-| SQL_APPWAIT_PER_EXEC	  | SQLID,PHV,KJOB  | AppWait wait time per execution (μs) for SQL ID and specific plan hash value.     | v$event_name where WAIT_CLASS='Application' |
-| SQL_CONCUR_PER_EXEC    | SQLID,PHV,KJOB  | Concurrency wait time per execution (μs) for SQL ID and specific plan hash value. | v$event_name where WAIT_CLASS='Concurrency' |
-| SQL_IO_TIME_PER_EXEC   | SQLID,PHV,KJOB  | User IO Wait Time per execution (μs) for SQL ID and specific plan hash value.     | v$event_name where WAIT_CLASS='User I/O'    |
-| SQL_EXECUTIONS_PER_SEC | SQLID,PHV,KJOB  | SQL executions per SECOND for SQL ID and plan hash value                          |                                             |
-| SQL_BG_PER_SEC         | SQLID,PHV,KJOB  | Buffer gets per SECOND for SQL ID and specific plan hash value                    | 	                                           |
-| SQL_BG_PER_EXEC        | SQLID,PHV,KJOB  | Buffer gets per SQL EXECUTION for SQL ID and specific plan hash value             | 	                                           |
-| SQL_ELAPSED_TIME       | SQLID,PHV,KJOB  | Delta Elapsed time in microseconds                                                |                                             |
-| SQL_CPU_TIME           | SQLID,PHV,KJOB  | Delta CPU time in microseconds                                                    |                                             |
-| SQL_APPWAIT_TIME       | SQLID,PHV,KJOB  | Delta AppWait in microseconds                                                     |                                             |
-| SQL_CONCURRENCY_TIME   | SQLID,PHV,KJOB  | Delta CONCURRENTCY time in microseconds                                           |                                             |
-| SQL_USERIOWAIT         | SQLID,PHV,KJOB  | Delta UserIOwait time in microseconds                                             | 	                                           |
-| SQL_EXECUTIONS         | SQLID,PHV,KJOB  | Delta SQL EXECUTIONS                                                              |                                             |
-| SQL_BG                 | SQLID,PHV,KJOB  | Delta Buffer gets |                                             | |
+| Metric Name		          | Labels                  | Description                                                                       | Comment                                     |  
+|------------------------|-------------------------|-----------------------------------------------------------------------------------|---------------------------------------------|
+| SQL_ELA_PER_EXEC       | SQLID,PHV,SQLTEXT,KJOB | Elapsed time per execution (μs) for SQL ID and specific plan hash value.          |                                             |
+| SQL_CPU_TIME_PER_EXEC  | SQLID,PHV,SQLTEXT,KJOB | CPU Time per execution (μs) for SQL ID and specific plan hash value.              | on CPU	                                     |
+| SQL_APPWAIT_PER_EXEC	  | SQLID,PHV,SQLTEXT,KJOB | AppWait wait time per execution (μs) for SQL ID and specific plan hash value.     | v$event_name where WAIT_CLASS='Application' |
+| SQL_CONCUR_PER_EXEC    | SQLID,PHV,SQLTEXT,KJOB | Concurrency wait time per execution (μs) for SQL ID and specific plan hash value. | v$event_name where WAIT_CLASS='Concurrency' |
+| SQL_IO_TIME_PER_EXEC   | SQLID,PHV,SQLTEXT,KJOB | User IO Wait Time per execution (μs) for SQL ID and specific plan hash value.     | v$event_name where WAIT_CLASS='User I/O'    |
+| SQL_EXECUTIONS_PER_SEC | SQLID,PHV,SQLTEXT,KJOB | SQL executions per SECOND for SQL ID and plan hash value                          |                                             |
+| SQL_BG_PER_SEC         | SQLID,PHV,SQLTEXT,KJOB | Buffer gets per SECOND for SQL ID and specific plan hash value                    | 	                                           |
+| SQL_BG_PER_EXEC        | SQLID,PHV,SQLTEXT,KJOB | Buffer gets per SQL EXECUTION for SQL ID and specific plan hash value             | 	                                           |
+| SQL_ELAPSED_TIME       | SQLID,PHV,SQLTEXT,KJOB | Delta Elapsed time in microseconds                                                |                                             |
+| SQL_CPU_TIME           | SQLID,PHV,SQLTEXT,KJOB | Delta CPU time in microseconds                                                    |                                             |
+| SQL_APPWAIT_TIME       | SQLID,PHV,SQLTEXT,KJOB | Delta AppWait in microseconds                                                     |                                             |
+| SQL_CONCURRENCY_TIME   | SQLID,PHV,SQLTEXT,KJOB | Delta CONCURRENTCY time in microseconds                                           |                                             |
+| SQL_USERIOWAIT         | SQLID,PHV,SQLTEXT,KJOB | Delta UserIOwait time in microseconds                                             | 	                                           |
+| SQL_EXECUTIONS         | SQLID,PHV,SQLTEXT,KJOB | Delta SQL EXECUTIONS                                                              |                                             |
+| SQL_BG                 | SQLID,PHV,SQLTEXT,KJOB | Delta Buffer gets |                                             | |
 
 -  **You can filter and join metrics by variety of labels.**
 ***
@@ -126,11 +130,11 @@ Real-World Use Cases of kPerf:
 -  <img src="images/kPerfImages/session/session1.PNG" alt="Session Module Overview">
 -  SID format is "ConID-SID-Serial", e.g. 2-45-3355 is Container ID-2, SID-45, Serial-3355
 
-| Metric Name		             | Labels                                                                              | Description                                        | Comment |  
-|---------------------------|-------------------------------------------------------------------------------------|----------------------------------------------------|---------------|
-| ACTIVE_SESSION_STATUS     | SID, USERNAME, WAITCLASS, KJOB	                                                     | Active Session State                               |                              |
-| SESSION_DELTA_EVENTS_TIME | SID, USERNAME, PROGRAM, COMMAND_NAME, MACHINE, SQLID, STATE, WAITCLASS, EVENT, KJOB | Delta of time waited (in milliseconds) the session |                                |
-| SESSION_DELTA_WAIT_EVENTS | SID, USERNAME, PROGRAM, COMMAND_NAME, MACHINE, SQLID, STATE, WAITCLASS, EVENT, KJOB | Delta of Wait Events                               | 
+| Metric Name		             | Labels                                                                                       | Description                                        | Comment |  
+|---------------------------|----------------------------------------------------------------------------------------------|----------------------------------------------------|---------------|
+| ACTIVE_SESSION_STATUS     | SID, USERNAME, WAITCLASS, SQLTEXT, KJOB	                                                     | Active Session State                               |                              |
+| SESSION_DELTA_EVENTS_TIME | SID, USERNAME, PROGRAM, SQLTEXT, COMMAND_NAME, MACHINE, SQLID, STATE, WAITCLASS, EVENT, KJOB | Delta of time waited (in milliseconds) the session |                                |
+| SESSION_DELTA_WAIT_EVENTS | SID, USERNAME, PROGRAM, SQLTEXT, COMMAND_NAME, MACHINE, SQLID, STATE, WAITCLASS, EVENT, KJOB | Delta of Wait Events                               | 
 
 ***
 
@@ -173,10 +177,11 @@ and there's more to come.
 
   - **Python = 3.11**
   - target platforms: linux.x86_64
-  - Grafana Version: grafana-10.4.19-security_01-1.x86_64
+  - Grafana Version: **grafana-12.3.1-1**
   - kPerf_Standalone/requirements.txt
 
 ## Config File Options
+- Add TNS aliases to the tnsnames.ora file in the kPerf_Standalone folder.
 - File: kPerfENV.cfg
 
 | Parameter Name	      | Description 		  				   	   									                                                                     | Default Value | Possible Value	        |
@@ -193,9 +198,6 @@ and there's more to come.
 | ISDBSIZE			          | Enable or disable DB object size collection. DBSIZE MODULE.			                                           | True			       | 	False/True	str		      |
 | ORACLE_USER		        | Oracle Database user.														                                                                      | 	N/A			       | Valid user name str    |
 | ORACLE_PASSWORD	     | Oracle user's password. 														                                                                   | N/A			        | Valid password str     |
-| ORACLE_HOST		        | Ip addres or DNS of Oracle Database Server.									                                                     | N/A			        | Ip addres or DNS str   |
-| ORACLE_PORT		        | Oracle Listener Port.														                                                                      | 1521		        | Valid port number str  |
-| ORACLE_SERVICE_NAME  | Oracle Service Name.															                                                                      | 	N/A			       | Valid Service Name str |
 | DEBUGON			           | Spool additional info to the logfile.										                                                          | False		       | 	False/True	str        |
 | JOBMARKER						      | Global Uniq Job name for kPerf Instance Mertrics.	                                                       | kjob1	        | str                    |                                                  
 
@@ -214,6 +216,7 @@ and there's more to come.
 		Create a user in the Oracle database using either createSQLuser_for_Multitenant.sql or createSQLuser_NonCDB.sql.
 		***For a multi-tenant database, you must create the user in the ROOT container using createSQLuser_for_Multitenant.sql.***
 		The kPerfENV.cfg file contains the startup parameters(Section: Config File Options).
+        Add TNS aliases to the tnsnames.ora file in the kPerf_Standalone folder.
 				
         - To start kPerf.py, ensure you are in the kPerf_Standalone directory; otherwise, the kPerfENV.cfg file will not be read.
         - You should not modify the structure of kPerf_Standalone, but you are allowed to rename it.
@@ -232,15 +235,9 @@ and there's more to come.
 
  ## BUG
  - Lack of documentation. The documentation is under development and will be released soon.
- - An Out of Memory error occurred in the browser on the "KPerf SQL Details" Grafana dashboard. Version: 
-    - grafana-enterprise-12.3.0-1.x86_64
-    - grafana-11.6.9-1.x86_64
-    - grafana-11.3.5-security_01-1.x86_64 
-    - grafana-11.2.10-security_01-1.x86_64 
-    - grafana-11.1.13-1.x86_64 
 
  ## Info
- - Current Version 2.5.0. 
+ - Current Version 2.5.1. 
  - License has been extended until 2026-12-01 (yyyy.mm.dd).
 
 ## Contact

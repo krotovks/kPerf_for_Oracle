@@ -1,0 +1,19 @@
+ORCL19_FREE =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+		(ADDRESS=
+		(PROTOCOL = TCP)
+		(HOST = 10.1.61.101)
+		(PORT = 1531)
+		)
+		(ADDRESS=
+		(PROTOCOL = TCP)
+		(HOST = 10.1.61.100)
+		(PORT = 1521)
+		)
+	)
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = FREE)
+    )
+  )

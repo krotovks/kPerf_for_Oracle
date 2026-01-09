@@ -1,0 +1,1514 @@
+{
+  "apiVersion": "dashboard.grafana.app/v1beta1",
+  "kind": "Dashboard",
+  "metadata": {
+    "name": "kperfsqldetailv250",
+    "namespace": "default",
+    "uid": "txAUrocyKHkHL70GnOUyCTl9Gt8iG34S9PPH42oiCvoX",
+    "resourceVersion": "24",
+    "generation": 25,
+    "creationTimestamp": "2025-12-17T05:34:07Z",
+    "labels": {
+      "grafana.app/deprecatedInternalID": "6"
+    },
+    "annotations": {
+      "grafana.app/createdBy": "user:u000000001",
+      "grafana.app/folder": "ef7c91z94ar5sf",
+      "grafana.app/updatedBy": "user:u000000001",
+      "grafana.app/updatedTimestamp": "2026-01-05T11:38:31Z"
+    }
+  },
+  "spec": {
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "description": "KPerf SQL details",
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 2,
+    "id": 0,
+    "links": [],
+    "panels": [
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${dsname}"
+        },
+        "description": "Activity CPU Time, Period ${__from:date:YYYY-MM-DD HH:mm:ss} → ${__to:date:YYYY-MM-DD HH:mm:ss}",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "align": "auto",
+              "cellOptions": {
+                "type": "auto"
+              },
+              "filterable": true,
+              "footer": {
+                "reducers": []
+              },
+              "inspect": true
+            },
+            "decimals": 0,
+            "mappings": [],
+            "min": 0,
+            "noValue": "0",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": 0
+                }
+              ]
+            },
+            "unit": "none"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "PHV"
+              },
+              "properties": [
+                {
+                  "id": "unit",
+                  "value": "string"
+                },
+                {
+                  "id": "custom.cellOptions",
+                  "value": {
+                    "type": "json-view"
+                  }
+                },
+                {
+                  "id": "custom.width",
+                  "value": 115
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "SQLID"
+              },
+              "properties": [
+                {
+                  "id": "custom.cellOptions",
+                  "value": {
+                    "type": "auto"
+                  }
+                },
+                {
+                  "id": "custom.width",
+                  "value": 142
+                },
+                {
+                  "id": "custom.cellOptions",
+                  "value": {
+                    "type": "color-text"
+                  }
+                },
+                {
+                  "id": "links",
+                  "value": [
+                    {
+                      "targetBlank": true,
+                      "title": "CPU TIme",
+                      "url": "d/kperfsessionv250/kperf-session?orgId=1&var-vsqlwait=$job&var-SQLID=${__value.text}&from=${__from}&to=${__to}"
+                    }
+                  ]
+                },
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "green",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "SQLTEXT"
+              },
+              "properties": [
+                {
+                  "id": "unit",
+                  "value": "string"
+                },
+                {
+                  "id": "custom.cellOptions",
+                  "value": {
+                    "type": "json-view"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Last Wait On %"
+              },
+              "properties": [
+                {
+                  "id": "custom.cellOptions",
+                  "value": {
+                    "drawStyle": "line",
+                    "gradientMode": "hue",
+                    "hideValue": false,
+                    "lineStyle": {
+                      "dash": [
+                        10,
+                        10
+                      ],
+                      "fill": "solid"
+                    },
+                    "showPoints": "never",
+                    "spanNulls": false,
+                    "type": "sparkline"
+                  }
+                },
+                {
+                  "id": "unit",
+                  "value": "none"
+                },
+                {
+                  "id": "min",
+                  "value": 1
+                },
+                {
+                  "id": "color",
+                  "value": {
+                    "mode": "palette-classic"
+                  }
+                },
+                {
+                  "id": "noValue",
+                  "value": "0"
+                },
+                {
+                  "id": "max",
+                  "value": 100
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Last SUM OverTime Wait On"
+              },
+              "properties": [
+                {
+                  "id": "unit",
+                  "value": "ms"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "USERNAME"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 118
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "SID"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 120
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "PROGRAM"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 158
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "EVENT"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 301
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "id": 12,
+        "interval": "$snapinterval",
+        "options": {
+          "cellHeight": "sm",
+          "enablePagination": false,
+          "showHeader": true,
+          "sortBy": [
+            {
+              "desc": true,
+              "displayName": "Last Wait On %"
+            }
+          ]
+        },
+        "pluginVersion": "12.3.1",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "${dsname}"
+            },
+            "editorMode": "code",
+            "expr": "100 *\r\nsum(sum_over_time(SESSION_DELTA_EVENTS_TIME{job=\"$vsqlwait\",SQLID=~\"$SQLID\"} [$__range])) by (SQLID,EVENT,USERNAME,SID,SQLTEXT,PROGRAM)\r\n/\r\nscalar(sum(sum_over_time(SESSION_DELTA_EVENTS_TIME{job=\"$vsqlwait\",SQLID=~\"$SQLID\"} [$__range])))",
+            "hide": false,
+            "instant": false,
+            "interval": "$minstep",
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "${dsname}"
+            },
+            "editorMode": "code",
+            "expr": "sum(sum_over_time(SESSION_DELTA_EVENTS_TIME {job=\"$vsqlwait\", SQLID=~\"$SQLID\"} [$__range])) by(SQLID,EVENT,USERNAME,SID,SQLTEXT,PROGRAM)",
+            "format": "time_series",
+            "hide": false,
+            "instant": false,
+            "interval": "$minstep",
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "B"
+          }
+        ],
+        "title": "Activity ${__from:date:YYYY-MM-DD HH:mm:ss} → ${__to:date:YYYY-MM-DD HH:mm:ss}",
+        "transformations": [
+          {
+            "id": "timeSeriesTable",
+            "options": {
+              "A": {
+                "stat": "last",
+                "timeField": "Time"
+              },
+              "B": {
+                "stat": "last",
+                "timeField": "Time"
+              }
+            }
+          },
+          {
+            "id": "merge",
+            "options": {}
+          },
+          {
+            "id": "organize",
+            "options": {
+              "excludeByName": {},
+              "includeByName": {},
+              "indexByName": {
+                "EVENT": 2,
+                "SID": 1,
+                "SQLID": 0,
+                "Trend #A": 5,
+                "Trend #B": 4,
+                "USERNAME": 3
+              },
+              "renameByName": {
+                "Trend #A": "Last Wait On %",
+                "Trend #B": "Last SUM OverTime Wait On"
+              }
+            }
+          }
+        ],
+        "transparent": true,
+        "type": "table"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${dsname}"
+        },
+        "description": "Buffer gets per sec. SQLID=\"$SQLID\",PHV=\"$vPHV\"",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "barWidthFactor": 0.6,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "showValues": false,
+              "spanNulls": 60000,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": 0
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "none"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 10,
+          "w": 6,
+          "x": 0,
+          "y": 8
+        },
+        "id": 1,
+        "interval": "$snapinterval",
+        "options": {
+          "legend": {
+            "calcs": [
+              "lastNotNull",
+              "mean"
+            ],
+            "displayMode": "table",
+            "placement": "bottom",
+            "showLegend": true,
+            "sortBy": "Last *",
+            "sortDesc": true
+          },
+          "tooltip": {
+            "hideZeros": false,
+            "mode": "multi",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "12.3.1",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "${dsname}"
+            },
+            "editorMode": "code",
+            "expr": "SQL_BG_PER_SEC{job=~\"$vjob\",SQLID=~\"$SQLID\",PHV=~\"$vPHV\"}",
+            "instant": false,
+            "interval": "$minstep",
+            "legendFormat": "SQLID: {{SQLID}} PHV:{{PHV}}",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "Buffer gets per sec. SQLID=\"$SQLID\",PHV=\"$vPHV\".",
+        "transparent": true,
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${dsname}"
+        },
+        "description": "Buffer gets per Exec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "barWidthFactor": 0.6,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "showValues": false,
+              "spanNulls": 60000,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": 0
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "none"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 10,
+          "w": 6,
+          "x": 6,
+          "y": 8
+        },
+        "id": 3,
+        "interval": "$snapinterval",
+        "options": {
+          "legend": {
+            "calcs": [
+              "lastNotNull",
+              "mean"
+            ],
+            "displayMode": "table",
+            "placement": "bottom",
+            "showLegend": true,
+            "sortBy": "Last *",
+            "sortDesc": true
+          },
+          "tooltip": {
+            "hideZeros": false,
+            "mode": "multi",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "12.3.1",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "${dsname}"
+            },
+            "editorMode": "code",
+            "expr": "SQL_BG_PER_EXEC{job=~\"$vjob\",SQLID=~\"$SQLID\",PHV=~\"$vPHV\"}",
+            "instant": false,
+            "interval": "$minstep",
+            "legendFormat": "SQLID: {{SQLID}} PHV: {{PHV}}",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "Buffer gets per Exec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
+        "transparent": true,
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${dsname}"
+        },
+        "description": "SQL exec per sec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "barWidthFactor": 0.6,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "showValues": false,
+              "spanNulls": 60000,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": 0
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "none"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 10,
+          "w": 6,
+          "x": 12,
+          "y": 8
+        },
+        "id": 4,
+        "interval": "6000",
+        "options": {
+          "legend": {
+            "calcs": [
+              "lastNotNull",
+              "mean"
+            ],
+            "displayMode": "table",
+            "placement": "bottom",
+            "showLegend": true,
+            "sortBy": "Last *",
+            "sortDesc": true
+          },
+          "tooltip": {
+            "hideZeros": false,
+            "mode": "multi",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "12.3.1",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "${dsname}"
+            },
+            "editorMode": "code",
+            "expr": "SQL_EXECUTIONS_PER_SEC{job=~\"$vjob\",SQLID=~\"$SQLID\",PHV=~\"$vPHV\"}",
+            "instant": false,
+            "interval": "$minstep",
+            "legendFormat": "SQLID: {{SQLID}} PHV:{{PHV}}",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "SQL exec per sec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
+        "transparent": true,
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${dsname}"
+        },
+        "description": "SQL CPU Time per exec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "barWidthFactor": 0.6,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "showValues": false,
+              "spanNulls": 60000,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": 0
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "µs"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 10,
+          "w": 6,
+          "x": 18,
+          "y": 8
+        },
+        "id": 6,
+        "interval": "$snapinterval",
+        "options": {
+          "legend": {
+            "calcs": [
+              "lastNotNull",
+              "mean"
+            ],
+            "displayMode": "table",
+            "placement": "bottom",
+            "showLegend": true,
+            "sortBy": "Last *",
+            "sortDesc": true
+          },
+          "tooltip": {
+            "hideZeros": false,
+            "mode": "multi",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "12.3.1",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "${dsname}"
+            },
+            "editorMode": "code",
+            "expr": "SQL_CPU_TIME_PER_EXEC{job=~\"$vjob\",SQLID=~\"$SQLID\",PHV=~\"$vPHV\"}",
+            "instant": false,
+            "interval": "$minstep",
+            "legendFormat": "SQLD: {{SQLID}} PHV: {{PHV}}",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "SQL CPU Time per exec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
+        "transparent": true,
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${dsname}"
+        },
+        "description": "SQL User IO Wait Per Exec. SQLID=\"$SQLID\",PHV=\"$vPHV\"",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "barWidthFactor": 0.6,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "showValues": false,
+              "spanNulls": 60000,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": 0
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "µs"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 10,
+          "w": 6,
+          "x": 0,
+          "y": 18
+        },
+        "id": 5,
+        "interval": "$snapinterval",
+        "options": {
+          "legend": {
+            "calcs": [
+              "lastNotNull",
+              "mean"
+            ],
+            "displayMode": "table",
+            "placement": "bottom",
+            "showLegend": true,
+            "sortBy": "Last *",
+            "sortDesc": true
+          },
+          "tooltip": {
+            "hideZeros": false,
+            "mode": "multi",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "12.3.1",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "${dsname}"
+            },
+            "editorMode": "code",
+            "expr": "SQL_IO_TIME_PER_EXEC{job=~\"$vjob\",SQLID=~\"$SQLID\",PHV=~\"$vPHV\"}",
+            "instant": false,
+            "interval": "$minstep",
+            "legendFormat": "SQLID: {{SQLID}} PHV:{{PHV}}",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "SQL User IO Wait Per Exec. SQLID=\"$SQLID\",PHV=\"$vPHV\"",
+        "transparent": true,
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${dsname}"
+        },
+        "description": "SQL Elapsed time per Exec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "barWidthFactor": 0.6,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "showValues": false,
+              "spanNulls": 60000,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": 0
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "µs"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 10,
+          "w": 6,
+          "x": 6,
+          "y": 18
+        },
+        "id": 7,
+        "interval": "$snapinterval",
+        "options": {
+          "legend": {
+            "calcs": [
+              "lastNotNull",
+              "mean"
+            ],
+            "displayMode": "table",
+            "placement": "bottom",
+            "showLegend": true,
+            "sortBy": "Last *",
+            "sortDesc": true
+          },
+          "tooltip": {
+            "hideZeros": false,
+            "mode": "multi",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "12.3.1",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "${dsname}"
+            },
+            "editorMode": "code",
+            "expr": "SQL_ELA_PER_EXEC{job=~\"$vjob\",SQLID=~\"$SQLID\",PHV=~\"$vPHV\"}",
+            "instant": false,
+            "interval": "$minstep",
+            "legendFormat": "SQLID: {{SQLID}} PHV: {{PHV}}",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "SQL Elapsed time per Exec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
+        "transparent": true,
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${dsname}"
+        },
+        "description": "SQL CONCURRENTCY Wait Time per exec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "barWidthFactor": 0.6,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "showValues": false,
+              "spanNulls": 60000,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": 0
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "µs"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 10,
+          "w": 6,
+          "x": 12,
+          "y": 18
+        },
+        "id": 2,
+        "options": {
+          "legend": {
+            "calcs": [
+              "lastNotNull",
+              "mean"
+            ],
+            "displayMode": "table",
+            "placement": "bottom",
+            "showLegend": true,
+            "sortBy": "Last *",
+            "sortDesc": true
+          },
+          "tooltip": {
+            "hideZeros": false,
+            "mode": "multi",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "12.3.1",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "${dsname}"
+            },
+            "editorMode": "code",
+            "expr": "SQL_CONCUR_PER_EXEC {job=~\"$vjob\",SQLID=~\"$SQLID\",PHV=~\"$vPHV\"}",
+            "instant": false,
+            "interval": "$minstep",
+            "legendFormat": "SQLD: {{SQLID}} PHV: {{PHV}}",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "SQL CONCURRENTCY Wait Time per exec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
+        "transparent": true,
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${dsname}"
+        },
+        "description": "SQL App Wait Time per exec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "barWidthFactor": 0.6,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "showValues": false,
+              "spanNulls": 60000,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": 0
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "µs"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 10,
+          "w": 6,
+          "x": 18,
+          "y": 18
+        },
+        "id": 8,
+        "interval": "$snapinterval",
+        "options": {
+          "legend": {
+            "calcs": [
+              "lastNotNull",
+              "mean"
+            ],
+            "displayMode": "table",
+            "placement": "bottom",
+            "showLegend": true,
+            "sortBy": "Last *",
+            "sortDesc": true
+          },
+          "tooltip": {
+            "hideZeros": false,
+            "mode": "multi",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "12.3.1",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "${dsname}"
+            },
+            "editorMode": "code",
+            "expr": "SQL_APPWAIT_PER_EXEC {job=~\"$vjob\",SQLID=~\"$SQLID\",PHV=~\"$vPHV\"}",
+            "instant": false,
+            "interval": "$minstep",
+            "legendFormat": "SQLD: {{SQLID}} PHV: {{PHV}}",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "SQL App Wait Time per exec. SQLID=\"$SQLID\",PHV=~\"$vPHV\"",
+        "transparent": true,
+        "type": "timeseries"
+      }
+    ],
+    "preload": false,
+    "refresh": "",
+    "schemaVersion": 42,
+    "tags": [],
+    "templating": {
+      "list": [
+        {
+          "current": {
+            "text": "Kperf-Monitor-Test",
+            "value": "Kperf-Monitor-Test"
+          },
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${dsname}"
+          },
+          "definition": "label_values(job)",
+          "includeAll": false,
+          "label": "SQL Stat job",
+          "name": "vjob",
+          "options": [],
+          "query": {
+            "qryType": 1,
+            "query": "label_values(job)",
+            "refId": "PrometheusVariableQueryEditor-VariableQuery"
+          },
+          "refresh": 2,
+          "regex": "/.*Kperf-Monitor*./",
+          "sort": 1,
+          "type": "query"
+        },
+        {
+          "current": {
+            "text": [
+              "1-gaszmhj86u77v"
+            ],
+            "value": [
+              "1-gaszmhj86u77v"
+            ]
+          },
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${dsname}"
+          },
+          "definition": "label_values({job=\"$vjob\"},SQLID)",
+          "description": "SQL ID",
+          "includeAll": false,
+          "label": "SQLID",
+          "multi": true,
+          "name": "SQLID",
+          "options": [],
+          "query": {
+            "qryType": 1,
+            "query": "label_values({job=\"$vjob\"},SQLID)",
+            "refId": "PrometheusVariableQueryEditor-VariableQuery"
+          },
+          "refresh": 2,
+          "regex": "",
+          "sort": 1,
+          "type": "query"
+        },
+        {
+          "current": {
+            "text": [
+              "0"
+            ],
+            "value": [
+              "0"
+            ]
+          },
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${dsname}"
+          },
+          "definition": "label_values({SQLID=~\"$SQLID\"},PHV)",
+          "description": "SQL Plan Hashe Value",
+          "includeAll": false,
+          "label": "PHV",
+          "multi": true,
+          "name": "vPHV",
+          "options": [],
+          "query": {
+            "qryType": 1,
+            "query": "label_values({SQLID=~\"$SQLID\"},PHV)",
+            "refId": "PrometheusVariableQueryEditor-VariableQuery"
+          },
+          "refresh": 2,
+          "regex": "",
+          "sort": 1,
+          "type": "query"
+        },
+        {
+          "current": {
+            "text": "prometheus",
+            "value": "df7c998hwzz0ga"
+          },
+          "includeAll": false,
+          "label": "ds_name",
+          "name": "dsname",
+          "options": [],
+          "query": "prometheus",
+          "refresh": 1,
+          "regex": "",
+          "type": "datasource"
+        },
+        {
+          "current": {
+            "text": "1ms",
+            "value": "1ms"
+          },
+          "includeAll": false,
+          "label": "Min Step",
+          "name": "minstep",
+          "options": [
+            {
+              "selected": true,
+              "text": "1ms",
+              "value": "1ms"
+            },
+            {
+              "selected": false,
+              "text": "10ms",
+              "value": "10ms"
+            },
+            {
+              "selected": false,
+              "text": "100ms",
+              "value": "100ms"
+            },
+            {
+              "selected": false,
+              "text": "300ms",
+              "value": "300ms"
+            },
+            {
+              "selected": false,
+              "text": "500ms",
+              "value": "500ms"
+            },
+            {
+              "selected": false,
+              "text": "1s",
+              "value": "1s"
+            },
+            {
+              "selected": false,
+              "text": "2s",
+              "value": "2s"
+            },
+            {
+              "selected": false,
+              "text": "3s",
+              "value": "3s"
+            },
+            {
+              "selected": false,
+              "text": "4s",
+              "value": "4s"
+            },
+            {
+              "selected": false,
+              "text": "5s",
+              "value": "5s"
+            },
+            {
+              "selected": false,
+              "text": "10s",
+              "value": "10s"
+            }
+          ],
+          "query": "1ms,10ms,100ms,300ms,500ms,1s,2s,3s,4s,,5s,10s",
+          "type": "custom"
+        },
+        {
+          "current": {
+            "text": "1s",
+            "value": "1s"
+          },
+          "description": "",
+          "includeAll": false,
+          "label": "Snap Interval",
+          "name": "snapinterval",
+          "options": [
+            {
+              "selected": true,
+              "text": "1s",
+              "value": "1s"
+            },
+            {
+              "selected": false,
+              "text": "2s",
+              "value": "2s"
+            },
+            {
+              "selected": false,
+              "text": "3s",
+              "value": "3s"
+            },
+            {
+              "selected": false,
+              "text": "4s",
+              "value": "4s"
+            },
+            {
+              "selected": false,
+              "text": "5s",
+              "value": "5s"
+            },
+            {
+              "selected": false,
+              "text": "6s",
+              "value": "6s"
+            },
+            {
+              "selected": false,
+              "text": "7s",
+              "value": "7s"
+            },
+            {
+              "selected": false,
+              "text": "8s",
+              "value": "8s"
+            },
+            {
+              "selected": false,
+              "text": "9s",
+              "value": "9s"
+            },
+            {
+              "selected": false,
+              "text": "10s",
+              "value": "10s"
+            },
+            {
+              "selected": false,
+              "text": "20s",
+              "value": "20s"
+            }
+          ],
+          "query": "1s,2s,3s,4s,5s,6s,7s,8s,9s,10s,20s",
+          "type": "custom"
+        },
+        {
+          "current": {
+            "text": "Kperf-Session-Test",
+            "value": "Kperf-Session-Test"
+          },
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${dsname}"
+          },
+          "definition": "label_values(job)",
+          "includeAll": false,
+          "label": "SqlWait",
+          "name": "vsqlwait",
+          "options": [],
+          "query": {
+            "qryType": 1,
+            "query": "label_values(job)",
+            "refId": "PrometheusVariableQueryEditor-VariableQuery"
+          },
+          "refresh": 2,
+          "regex": "/.*Kperf-Session*./",
+          "sort": 1,
+          "type": "query"
+        }
+      ]
+    },
+    "time": {
+      "from": "now-2m",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "browser",
+    "title": "KPerf SQL details",
+    "uid": "kperfsqldetailv250",
+    "version": 25
+  },
+  "status": {}
+}

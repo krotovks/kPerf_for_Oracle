@@ -6,7 +6,7 @@ grant select on v_$sysstat to kperf;
 grant select on v_$sqlarea to kperf;
 grant select on V_$SESSTAT to kperf;
 grant select on V_$SYS_TIME_MODEL to kperf;
-grant select on V_$SESS_TIME_MODEL to kperf
+grant select on V_$SESS_TIME_MODEL to kperf;
 grant select on dba_segments to kperf;
 grant select on dba_data_files to kperf;
 grant select on v_$session to kperf;
