@@ -5,8 +5,8 @@
     "name": "kperfsqldetailv250",
     "namespace": "default",
     "uid": "txAUrocyKHkHL70GnOUyCTl9Gt8iG34S9PPH42oiCvoX",
-    "resourceVersion": "24",
-    "generation": 25,
+    "resourceVersion": "25",
+    "generation": 29,
     "creationTimestamp": "2025-12-17T05:34:07Z",
     "labels": {
       "grafana.app/deprecatedInternalID": "6"
@@ -15,7 +15,7 @@
       "grafana.app/createdBy": "user:u000000001",
       "grafana.app/folder": "ef7c91z94ar5sf",
       "grafana.app/updatedBy": "user:u000000001",
-      "grafana.app/updatedTimestamp": "2026-01-05T11:38:31Z"
+      "grafana.app/updatedTimestamp": "2026-01-09T04:03:03Z"
     }
   },
   "spec": {
@@ -47,7 +47,7 @@
           "type": "prometheus",
           "uid": "${dsname}"
         },
-        "description": "Activity CPU Time, Period ${__from:date:YYYY-MM-DD HH:mm:ss} → ${__to:date:YYYY-MM-DD HH:mm:ss}",
+        "description": "SET SQL Activity as SQL Stat Job",
         "fieldConfig": {
           "defaults": {
             "custom": {
@@ -319,7 +319,7 @@
             "refId": "B"
           }
         ],
-        "title": "Activity ${__from:date:YYYY-MM-DD HH:mm:ss} → ${__to:date:YYYY-MM-DD HH:mm:ss}",
+        "title": "SQL Activity ${__from:date:YYYY-MM-DD HH:mm:ss} → ${__to:date:YYYY-MM-DD HH:mm:ss}",
         "transformations": [
           {
             "id": "timeSeriesTable",
@@ -1266,10 +1266,10 @@
         {
           "current": {
             "text": [
-              "1-gaszmhj86u77v"
+              "1-bcrs02p63dr3w"
             ],
             "value": [
-              "1-gaszmhj86u77v"
+              "1-bcrs02p63dr3w"
             ]
           },
           "datasource": {
@@ -1296,10 +1296,10 @@
         {
           "current": {
             "text": [
-              "0"
+              "956951527"
             ],
             "value": [
-              "0"
+              "956951527"
             ]
           },
           "datasource": {
@@ -1485,7 +1485,7 @@
           },
           "definition": "label_values(job)",
           "includeAll": false,
-          "label": "SqlWait",
+          "label": "SQL Activity",
           "name": "vsqlwait",
           "options": [],
           "query": {
@@ -1501,14 +1501,14 @@
       ]
     },
     "time": {
-      "from": "now-2m",
-      "to": "now"
+      "from": "2025-12-30T06:25:07.172Z",
+      "to": "2025-12-30T06:55:07.172Z"
     },
     "timepicker": {},
     "timezone": "browser",
     "title": "KPerf SQL details",
     "uid": "kperfsqldetailv250",
-    "version": 25
+    "version": 29
   },
   "status": {}
 }
