@@ -234,6 +234,7 @@ and there's more to come.
  - Oracle 12c
 
  ## BUG
+ - If you experience performance issues related to SQL ID 10jxs82gsnsbs, please use the provided script [sqlpatch_kperf_2.5.1.sql](SQLBUG/sqlpatch_kperf_2.5.1.sql)
  - Lack of documentation. The documentation is under development and will be released soon.
 
  ## Info
