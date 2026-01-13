@@ -5,8 +5,8 @@
     "name": "kperfsessionv250",
     "namespace": "default",
     "uid": "5SpX7Te6KuW6lBOJhPXWgl6GXmG71GXT9xa6Oa0DiV4X",
-    "resourceVersion": "74",
-    "generation": 74,
+    "resourceVersion": "82",
+    "generation": 85,
     "creationTimestamp": "2025-12-17T05:31:05Z",
     "labels": {
       "grafana.app/deprecatedInternalID": "4"
@@ -15,7 +15,7 @@
       "grafana.app/createdBy": "user:u000000001",
       "grafana.app/folder": "ef7c91z94ar5sf",
       "grafana.app/updatedBy": "user:u000000001",
-      "grafana.app/updatedTimestamp": "2025-12-30T05:50:25Z"
+      "grafana.app/updatedTimestamp": "2026-01-08T05:23:11Z"
     }
   },
   "spec": {
@@ -38,7 +38,7 @@
     "editable": true,
     "fiscalYearStartMonth": 0,
     "graphTooltip": 2,
-    "id": 4,
+    "id": 0,
     "links": [],
     "panels": [
       {
@@ -109,7 +109,7 @@
                 },
                 {
                   "id": "custom.width",
-                  "value": 148
+                  "value": 173
                 }
               ]
             },
@@ -121,7 +121,7 @@
               "properties": [
                 {
                   "id": "custom.width",
-                  "value": 87
+                  "value": 117
                 }
               ]
             },
@@ -196,6 +196,18 @@
                 {
                   "id": "noValue",
                   "value": "0"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "EVENT"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 288
                 }
               ]
             }
@@ -513,6 +525,21 @@
                   }
                 }
               ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Application"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-red",
+                    "mode": "fixed"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -618,10 +645,6 @@
                 {
                   "color": "green",
                   "value": 0
-                },
-                {
-                  "color": "red",
-                  "value": 80
                 }
               ]
             },
@@ -757,6 +780,21 @@
                   "id": "color",
                   "value": {
                     "fixedColor": "#aaaaaa",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Application"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-red",
                     "mode": "fixed"
                   }
                 }
@@ -1010,6 +1048,21 @@
                   }
                 }
               ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Application"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-red",
+                    "mode": "fixed"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -1061,7 +1114,7 @@
         "type": "timeseries"
       },
       {
-        "collapsed": true,
+        "collapsed": false,
         "gridPos": {
           "h": 1,
           "w": 24,
@@ -1069,700 +1122,703 @@
           "y": 18
         },
         "id": 120,
-        "panels": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${dsname}"
-            },
-            "description": "",
-            "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "palette-classic"
-                },
-                "custom": {
-                  "axisBorderShow": false,
-                  "axisCenteredZero": false,
-                  "axisColorMode": "text",
-                  "axisLabel": "",
-                  "axisPlacement": "auto",
-                  "barAlignment": 0,
-                  "barWidthFactor": 0.6,
-                  "drawStyle": "line",
-                  "fillOpacity": 100,
-                  "gradientMode": "none",
-                  "hideFrom": {
-                    "legend": false,
-                    "tooltip": false,
-                    "viz": false
-                  },
-                  "insertNulls": false,
-                  "lineInterpolation": "smooth",
-                  "lineWidth": 0,
-                  "pointSize": 1,
-                  "scaleDistribution": {
-                    "type": "linear"
-                  },
-                  "showPoints": "auto",
-                  "showValues": false,
-                  "spanNulls": false,
-                  "stacking": {
-                    "group": "A",
-                    "mode": "percent"
-                  },
-                  "thresholdsStyle": {
-                    "mode": "off"
-                  }
-                },
-                "decimals": 0,
-                "mappings": [],
-                "min": 0,
-                "noValue": "0",
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": 0
-                    },
-                    {
-                      "color": "red",
-                      "value": 80
-                    }
-                  ]
-                },
-                "unit": "percent"
-              },
-              "overrides": [
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "Commit"
-                  },
-                  "properties": [
-                    {
-                      "id": "color",
-                      "value": {
-                        "fixedColor": "dark-orange",
-                        "mode": "fixed"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "ON CPU"
-                  },
-                  "properties": [
-                    {
-                      "id": "color",
-                      "value": {
-                        "fixedColor": "green",
-                        "mode": "fixed"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "Concurrency"
-                  },
-                  "properties": [
-                    {
-                      "id": "color",
-                      "value": {
-                        "fixedColor": "#870010",
-                        "mode": "fixed"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "Idle"
-                  },
-                  "properties": [
-                    {
-                      "id": "color",
-                      "value": {
-                        "mode": "fixed"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "Network"
-                  },
-                  "properties": [
-                    {
-                      "id": "color",
-                      "value": {
-                        "fixedColor": "#414141",
-                        "mode": "fixed"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "User I/O"
-                  },
-                  "properties": [
-                    {
-                      "id": "color",
-                      "value": {
-                        "fixedColor": "dark-blue",
-                        "mode": "fixed"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "Other"
-                  },
-                  "properties": [
-                    {
-                      "id": "color",
-                      "value": {
-                        "fixedColor": "purple",
-                        "mode": "fixed"
-                      }
-                    }
-                  ]
-                }
-              ]
-            },
-            "gridPos": {
-              "h": 8,
-              "w": 12,
-              "x": 0,
-              "y": 19
-            },
-            "id": 117,
-            "interval": "$snapinterval",
-            "options": {
-              "legend": {
-                "calcs": [
-                  "last",
-                  "mean",
-                  "max"
-                ],
-                "displayMode": "list",
-                "placement": "bottom",
-                "showLegend": true
-              },
-              "tooltip": {
-                "hideZeros": false,
-                "mode": "multi",
-                "sort": "desc"
-              }
-            },
-            "pluginVersion": "12.3.1",
-            "targets": [
-              {
-                "datasource": {
-                  "type": "prometheus",
-                  "uid": "${dsname}"
-                },
-                "editorMode": "code",
-                "expr": "100* sum(SESSION_DELTA_EVENTS_TIME{job=\"$job\",SID=\"$sid\",WAITCLASS=~\"$SYS_CLASS\",USERNAME!=\"Instance\"}) by(WAITCLASS)\r\n  /\r\n  scalar(sum(SESSION_DELTA_EVENTS_TIME{job=\"$job\",SID=\"$sid\",WAITCLASS=~\"$SYS_CLASS\",USERNAME!=\"Instance\"}))",
-                "instant": false,
-                "interval": "$minstep",
-                "legendFormat": "__auto",
-                "range": true,
-                "refId": "A"
-              }
-            ],
-            "title": "SID: $sid ${__from:date:YYYY-MM-DD HH:mm:ss} → ${__to:date:YYYY-MM-DD HH:mm:ss}",
-            "transparent": true,
-            "type": "timeseries"
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "df7c998hwzz0ga"
-            },
-            "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "thresholds"
-                },
-                "custom": {
-                  "align": "auto",
-                  "cellOptions": {
-                    "type": "auto"
-                  },
-                  "footer": {
-                    "reducers": []
-                  },
-                  "inspect": false
-                },
-                "mappings": [],
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": 0
-                    }
-                  ]
-                }
-              },
-              "overrides": [
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "SQLID"
-                  },
-                  "properties": [
-                    {
-                      "id": "custom.width",
-                      "value": 140
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "EVENT"
-                  },
-                  "properties": [
-                    {
-                      "id": "custom.width",
-                      "value": 216
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "Wait Events TIme"
-                  },
-                  "properties": [
-                    {
-                      "id": "custom.cellOptions",
-                      "value": {
-                        "type": "sparkline"
-                      }
-                    },
-                    {
-                      "id": "unit",
-                      "value": "ms"
-                    },
-                    {
-                      "id": "color",
-                      "value": {
-                        "mode": "palette-classic-by-name"
-                      }
-                    },
-                    {
-                      "id": "noValue",
-                      "value": "0"
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "Wait Events TIme %"
-                  },
-                  "properties": [
-                    {
-                      "id": "custom.cellOptions",
-                      "value": {
-                        "type": "sparkline"
-                      }
-                    },
-                    {
-                      "id": "unit",
-                      "value": "percent"
-                    },
-                    {
-                      "id": "noValue",
-                      "value": "0"
-                    },
-                    {
-                      "id": "decimals",
-                      "value": 0
-                    },
-                    {
-                      "id": "color",
-                      "value": {
-                        "mode": "palette-classic-by-name"
-                      }
-                    }
-                  ]
-                }
-              ]
-            },
-            "gridPos": {
-              "h": 8,
-              "w": 12,
-              "x": 12,
-              "y": 19
-            },
-            "id": 116,
-            "interval": "$snapinterval",
-            "options": {
-              "cellHeight": "sm",
-              "showHeader": true,
-              "sortBy": [
-                {
-                  "desc": true,
-                  "displayName": "Wait Events TIme %"
-                }
-              ]
-            },
-            "pluginVersion": "12.3.1",
-            "targets": [
-              {
-                "editorMode": "code",
-                "expr": "sum(sum_over_time(SESSION_DELTA_EVENTS_TIME{job=\"$job\",SQLID=\"$SQLID\",WAITCLASS=~\"$SYS_CLASS\"}[$__range:$snapinterval])) by(SQLID, EVENT,)",
-                "interval": "$minstep",
-                "legendFormat": "__auto",
-                "range": true,
-                "refId": "A"
-              },
-              {
-                "datasource": {
-                  "type": "prometheus",
-                  "uid": "df7c998hwzz0ga"
-                },
-                "editorMode": "code",
-                "expr": "100 *\r\nsum(sum_over_time(SESSION_DELTA_EVENTS_TIME{job=\"$job\",SQLID=\"$SQLID\",WAITCLASS=~\"$SYS_CLASS\"}[$__range:$snapinterval])) by(SQLID,EVENT)\r\n  /\r\n  scalar(sum(sum_over_time(SESSION_DELTA_EVENTS_TIME{job=\"$job\",SQLID=\"$SQLID\",WAITCLASS=~\"$SYS_CLASS\"}[$__range:$snapinterval])))",
-                "hide": false,
-                "instant": false,
-                "interval": "$minstep",
-                "legendFormat": "__auto",
-                "range": true,
-                "refId": "B"
-              }
-            ],
-            "title": "$SQLID Spent Time,  Period ${__from:date:YYYY-MM-DD HH:mm:ss} → ${__to:date:YYYY-MM-DD HH:mm:ss}",
-            "transformations": [
-              {
-                "id": "timeSeriesTable",
-                "options": {
-                  "A": {
-                    "stat": "last",
-                    "timeField": "Time"
-                  },
-                  "B": {
-                    "stat": "last",
-                    "timeField": "Time"
-                  }
-                }
-              },
-              {
-                "id": "merge",
-                "options": {}
-              },
-              {
-                "id": "organize",
-                "options": {
-                  "excludeByName": {},
-                  "includeByName": {},
-                  "indexByName": {
-                    "EVENT": 1,
-                    "SQLID": 0,
-                    "Trend #A": 2,
-                    "Trend #B": 3
-                  },
-                  "renameByName": {
-                    "Trend #A": "Wait Events TIme",
-                    "Trend #B": "Wait Events TIme %"
-                  }
-                }
-              }
-            ],
-            "transparent": true,
-            "type": "table"
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${dsname}"
-            },
-            "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "thresholds"
-                },
-                "custom": {
-                  "align": "auto",
-                  "cellOptions": {
-                    "type": "auto"
-                  },
-                  "footer": {
-                    "reducers": []
-                  },
-                  "inspect": false
-                },
-                "mappings": [],
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": 0
-                    }
-                  ]
-                }
-              },
-              "overrides": [
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "USERNAME"
-                  },
-                  "properties": [
-                    {
-                      "id": "custom.width",
-                      "value": 66
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "Wait Events Time"
-                  },
-                  "properties": [
-                    {
-                      "id": "custom.cellOptions",
-                      "value": {
-                        "type": "sparkline"
-                      }
-                    },
-                    {
-                      "id": "unit",
-                      "value": "ms"
-                    },
-                    {
-                      "id": "custom.width",
-                      "value": 142
-                    },
-                    {
-                      "id": "noValue",
-                      "value": "0"
-                    },
-                    {
-                      "id": "color",
-                      "value": {
-                        "mode": "palette-classic"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "Wait Events TIme %"
-                  },
-                  "properties": [
-                    {
-                      "id": "custom.width",
-                      "value": 123
-                    },
-                    {
-                      "id": "noValue",
-                      "value": "0"
-                    },
-                    {
-                      "id": "color",
-                      "value": {
-                        "mode": "palette-classic"
-                      }
-                    },
-                    {
-                      "id": "unit",
-                      "value": "percent"
-                    },
-                    {
-                      "id": "decimals",
-                      "value": 0
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "SID"
-                  },
-                  "properties": [
-                    {
-                      "id": "custom.width",
-                      "value": 108
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "Wait Events Count"
-                  },
-                  "properties": [
-                    {
-                      "id": "custom.width",
-                      "value": 182
-                    },
-                    {
-                      "id": "noValue",
-                      "value": "0"
-                    },
-                    {
-                      "id": "color",
-                      "value": {
-                        "mode": "palette-classic"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "EVENT"
-                  },
-                  "properties": [
-                    {
-                      "id": "custom.width",
-                      "value": 154
-                    },
-                    {
-                      "id": "custom.cellOptions",
-                      "value": {
-                        "type": "json-view"
-                      }
-                    }
-                  ]
-                }
-              ]
-            },
-            "gridPos": {
-              "h": 8,
-              "w": 12,
-              "x": 0,
-              "y": 27
-            },
-            "id": 113,
-            "interval": "$snapinterval",
-            "options": {
-              "cellHeight": "sm",
-              "showHeader": true,
-              "sortBy": [
-                {
-                  "desc": true,
-                  "displayName": "Wait Events TIme %"
-                }
-              ]
-            },
-            "pluginVersion": "12.3.1",
-            "targets": [
-              {
-                "datasource": {
-                  "type": "prometheus",
-                  "uid": "${dsname}"
-                },
-                "editorMode": "code",
-                "expr": "\r\n   sum(sum_over_time(SESSION_DELTA_EVENTS_TIME{job=\"$job\",SID=\"$sid\",WAITCLASS=~\"$SYS_CLASS\",USERNAME!=\"Instance\"}[$__range:$snapinterval])) by(SID, EVENT,USERNAME)\r\n",
-                "format": "time_series",
-                "hide": false,
-                "interval": "$minstep",
-                "legendFormat": "__auto",
-                "range": true,
-                "refId": "A"
-              },
-              {
-                "datasource": {
-                  "type": "prometheus",
-                  "uid": "${dsname}"
-                },
-                "editorMode": "code",
-                "expr": "100 *\r\nsum(sum_over_time(SESSION_DELTA_EVENTS_TIME{USERNAME!=\"Instance\",SID=\"$sid\",job=\"$job\",WAITCLASS=~\"$SYS_CLASS\"}[$__range:$snapinterval])) by(SID, EVENT,USERNAME)\r\n  /\r\n  scalar(sum(sum_over_time(SESSION_DELTA_EVENTS_TIME{USERNAME!=\"Instance\",SID=\"$sid\",SID=\"$sid\",WAITCLASS=~\"$SYS_CLASS\",job=\"$job\"}[$__range:$snapinterval])))",
-                "format": "time_series",
-                "hide": false,
-                "instant": false,
-                "interval": "$minstep",
-                "legendFormat": "__auto",
-                "range": true,
-                "refId": "B"
-              },
-              {
-                "datasource": {
-                  "type": "prometheus",
-                  "uid": "${dsname}"
-                },
-                "editorMode": "code",
-                "expr": "\r\n   sum(sum_over_time(SESSION_DELTA_WAIT_EVENTS{USERNAME!=\"Instance\",SID=\"$sid\",job=\"$job\",WAITCLASS=~\"$SYS_CLASS\"}[$__range:$snapinterval])) by(SID, EVENT,USERNAME)\r\n",
-                "format": "time_series",
-                "hide": false,
-                "instant": false,
-                "interval": "$minstep",
-                "legendFormat": "__auto",
-                "range": true,
-                "refId": "C"
-              }
-            ],
-            "title": "SID $sid Sessions Spent Time: Period ${__from:date:YYYY-MM-DD HH:mm:ss} → ${__to:date:YYYY-MM-DD HH:mm:ss}",
-            "transformations": [
-              {
-                "id": "timeSeriesTable",
-                "options": {
-                  "A": {
-                    "stat": "last",
-                    "timeField": "Time"
-                  },
-                  "B": {
-                    "stat": "last",
-                    "timeField": "Time"
-                  },
-                  "C": {
-                    "stat": "last",
-                    "timeField": "Time"
-                  }
-                }
-              },
-              {
-                "id": "merge",
-                "options": {}
-              },
-              {
-                "id": "organize",
-                "options": {
-                  "excludeByName": {},
-                  "includeByName": {},
-                  "indexByName": {
-                    "EVENT": 2,
-                    "SID": 0,
-                    "Trend #A": 3,
-                    "Trend #B": 4,
-                    "Trend #C": 5,
-                    "USERNAME": 1
-                  },
-                  "renameByName": {
-                    "EVENT": "",
-                    "Trend #A": "Wait Events Time",
-                    "Trend #B": "Wait Events TIme %",
-                    "Trend #C": "Wait Events Count"
-                  }
-                }
-              }
-            ],
-            "transparent": true,
-            "type": "table"
-          }
-        ],
+        "panels": [],
         "title": "Search",
         "type": "row"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${dsname}"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "barWidthFactor": 0.6,
+              "drawStyle": "line",
+              "fillOpacity": 100,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "smooth",
+              "lineWidth": 0,
+              "pointSize": 1,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "showValues": false,
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "percent"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "decimals": 0,
+            "mappings": [],
+            "min": 0,
+            "noValue": "0",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": 0
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "percent"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Commit"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-orange",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "ON CPU"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "green",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Concurrency"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "#870010",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Idle"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Network"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "#414141",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "User I/O"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-blue",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Other"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "purple",
+                    "mode": "fixed"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 19
+        },
+        "id": 117,
+        "interval": "$snapinterval",
+        "options": {
+          "legend": {
+            "calcs": [
+              "last",
+              "mean",
+              "max"
+            ],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "hideZeros": false,
+            "mode": "multi",
+            "sort": "desc"
+          }
+        },
+        "pluginVersion": "12.3.1",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "${dsname}"
+            },
+            "editorMode": "code",
+            "expr": "100* sum(SESSION_DELTA_EVENTS_TIME{job=\"$job\",SID=\"$sid\",WAITCLASS=~\"$SYS_CLASS\",USERNAME!=\"Instance\"}) by(WAITCLASS)\r\n  /\r\n  scalar(sum(SESSION_DELTA_EVENTS_TIME{job=\"$job\",SID=\"$sid\",WAITCLASS=~\"$SYS_CLASS\",USERNAME!=\"Instance\"}))",
+            "instant": false,
+            "interval": "$minstep",
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A"
+          }
+        ],
+        "title": "SID: $sid ${__from:date:YYYY-MM-DD HH:mm:ss} → ${__to:date:YYYY-MM-DD HH:mm:ss}",
+        "transparent": true,
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${dsname}"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "custom": {
+              "align": "auto",
+              "cellOptions": {
+                "type": "auto"
+              },
+              "footer": {
+                "reducers": []
+              },
+              "inspect": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": 0
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "SQLID"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 140
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "EVENT"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 216
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Wait Events TIme"
+              },
+              "properties": [
+                {
+                  "id": "custom.cellOptions",
+                  "value": {
+                    "type": "sparkline"
+                  }
+                },
+                {
+                  "id": "unit",
+                  "value": "ms"
+                },
+                {
+                  "id": "color",
+                  "value": {
+                    "mode": "palette-classic-by-name"
+                  }
+                },
+                {
+                  "id": "noValue",
+                  "value": "0"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Wait Events TIme %"
+              },
+              "properties": [
+                {
+                  "id": "custom.cellOptions",
+                  "value": {
+                    "type": "sparkline"
+                  }
+                },
+                {
+                  "id": "unit",
+                  "value": "percent"
+                },
+                {
+                  "id": "noValue",
+                  "value": "0"
+                },
+                {
+                  "id": "decimals",
+                  "value": 0
+                },
+                {
+                  "id": "color",
+                  "value": {
+                    "mode": "palette-classic-by-name"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 19
+        },
+        "id": 116,
+        "interval": "$snapinterval",
+        "options": {
+          "cellHeight": "sm",
+          "showHeader": true,
+          "sortBy": [
+            {
+              "desc": true,
+              "displayName": "Wait Events TIme %"
+            }
+          ]
+        },
+        "pluginVersion": "12.3.1",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "${dsname}"
+            },
+            "editorMode": "code",
+            "expr": "sum(sum_over_time(SESSION_DELTA_EVENTS_TIME{job=\"$job\",SQLID=\"$SQLID\",WAITCLASS=~\"$SYS_CLASS\"}[$__range:$snapinterval])) by(SQLID, EVENT,)",
+            "interval": "$minstep",
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "${dsname}"
+            },
+            "editorMode": "code",
+            "expr": "100 *\r\nsum(sum_over_time(SESSION_DELTA_EVENTS_TIME{job=\"$job\",SQLID=\"$SQLID\",WAITCLASS=~\"$SYS_CLASS\"}[$__range:$snapinterval])) by(SQLID,EVENT)\r\n  /\r\n  scalar(sum(sum_over_time(SESSION_DELTA_EVENTS_TIME{job=\"$job\",SQLID=\"$SQLID\",WAITCLASS=~\"$SYS_CLASS\"}[$__range:$snapinterval])))",
+            "hide": false,
+            "instant": false,
+            "interval": "$minstep",
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "B"
+          }
+        ],
+        "title": "$SQLID Spent Time,  Period ${__from:date:YYYY-MM-DD HH:mm:ss} → ${__to:date:YYYY-MM-DD HH:mm:ss}",
+        "transformations": [
+          {
+            "id": "timeSeriesTable",
+            "options": {
+              "A": {
+                "stat": "last",
+                "timeField": "Time"
+              },
+              "B": {
+                "stat": "last",
+                "timeField": "Time"
+              }
+            }
+          },
+          {
+            "id": "merge",
+            "options": {}
+          },
+          {
+            "id": "organize",
+            "options": {
+              "excludeByName": {},
+              "includeByName": {},
+              "indexByName": {
+                "EVENT": 1,
+                "SQLID": 0,
+                "Trend #A": 2,
+                "Trend #B": 3
+              },
+              "renameByName": {
+                "Trend #A": "Wait Events TIme",
+                "Trend #B": "Wait Events TIme %"
+              }
+            }
+          }
+        ],
+        "transparent": true,
+        "type": "table"
+      },
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${dsname}"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "custom": {
+              "align": "auto",
+              "cellOptions": {
+                "type": "auto"
+              },
+              "footer": {
+                "reducers": []
+              },
+              "inspect": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": 0
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "USERNAME"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 66
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Wait Events Time"
+              },
+              "properties": [
+                {
+                  "id": "custom.cellOptions",
+                  "value": {
+                    "type": "sparkline"
+                  }
+                },
+                {
+                  "id": "unit",
+                  "value": "ms"
+                },
+                {
+                  "id": "custom.width",
+                  "value": 142
+                },
+                {
+                  "id": "noValue",
+                  "value": "0"
+                },
+                {
+                  "id": "color",
+                  "value": {
+                    "mode": "palette-classic"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Wait Events TIme %"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 123
+                },
+                {
+                  "id": "noValue",
+                  "value": "0"
+                },
+                {
+                  "id": "color",
+                  "value": {
+                    "mode": "palette-classic"
+                  }
+                },
+                {
+                  "id": "unit",
+                  "value": "percent"
+                },
+                {
+                  "id": "decimals",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "SID"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 108
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Wait Events Count"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 182
+                },
+                {
+                  "id": "noValue",
+                  "value": "0"
+                },
+                {
+                  "id": "color",
+                  "value": {
+                    "mode": "palette-classic"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "EVENT"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 154
+                },
+                {
+                  "id": "custom.cellOptions",
+                  "value": {
+                    "type": "json-view"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 27
+        },
+        "id": 113,
+        "interval": "$snapinterval",
+        "options": {
+          "cellHeight": "sm",
+          "showHeader": true,
+          "sortBy": [
+            {
+              "desc": true,
+              "displayName": "Wait Events TIme %"
+            }
+          ]
+        },
+        "pluginVersion": "12.3.1",
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "${dsname}"
+            },
+            "editorMode": "code",
+            "expr": "\r\n   sum(sum_over_time(SESSION_DELTA_EVENTS_TIME{job=\"$job\",SID=\"$sid\",WAITCLASS=~\"$SYS_CLASS\",USERNAME!=\"Instance\"}[$__range:$snapinterval])) by(SID, EVENT,USERNAME)\r\n",
+            "format": "time_series",
+            "hide": false,
+            "interval": "$minstep",
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "${dsname}"
+            },
+            "editorMode": "code",
+            "expr": "100 *\r\nsum(sum_over_time(SESSION_DELTA_EVENTS_TIME{USERNAME!=\"Instance\",SID=\"$sid\",job=\"$job\",WAITCLASS=~\"$SYS_CLASS\"}[$__range:$snapinterval])) by(SID, EVENT,USERNAME)\r\n  /\r\n  scalar(sum(sum_over_time(SESSION_DELTA_EVENTS_TIME{USERNAME!=\"Instance\",SID=\"$sid\",SID=\"$sid\",WAITCLASS=~\"$SYS_CLASS\",job=\"$job\"}[$__range:$snapinterval])))",
+            "format": "time_series",
+            "hide": false,
+            "instant": false,
+            "interval": "$minstep",
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "B"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "${dsname}"
+            },
+            "editorMode": "code",
+            "expr": "\r\n   sum(sum_over_time(SESSION_DELTA_WAIT_EVENTS{USERNAME!=\"Instance\",SID=\"$sid\",job=\"$job\",WAITCLASS=~\"$SYS_CLASS\"}[$__range:$snapinterval])) by(SID, EVENT,USERNAME)\r\n",
+            "format": "time_series",
+            "hide": false,
+            "instant": false,
+            "interval": "$minstep",
+            "legendFormat": "__auto",
+            "range": true,
+            "refId": "C"
+          }
+        ],
+        "title": "SID $sid Sessions Spent Time: Period ${__from:date:YYYY-MM-DD HH:mm:ss} → ${__to:date:YYYY-MM-DD HH:mm:ss}",
+        "transformations": [
+          {
+            "id": "timeSeriesTable",
+            "options": {
+              "A": {
+                "stat": "last",
+                "timeField": "Time"
+              },
+              "B": {
+                "stat": "last",
+                "timeField": "Time"
+              },
+              "C": {
+                "stat": "last",
+                "timeField": "Time"
+              }
+            }
+          },
+          {
+            "id": "merge",
+            "options": {}
+          },
+          {
+            "id": "organize",
+            "options": {
+              "excludeByName": {},
+              "includeByName": {},
+              "indexByName": {
+                "EVENT": 2,
+                "SID": 0,
+                "Trend #A": 3,
+                "Trend #B": 4,
+                "Trend #C": 5,
+                "USERNAME": 1
+              },
+              "renameByName": {
+                "EVENT": "",
+                "Trend #A": "Wait Events Time",
+                "Trend #B": "Wait Events TIme %",
+                "Trend #C": "Wait Events Count"
+              }
+            }
+          }
+        ],
+        "transparent": true,
+        "type": "table"
       },
       {
         "collapsed": false,
@@ -1770,7 +1826,7 @@
           "h": 1,
           "w": 24,
           "x": 0,
-          "y": 19
+          "y": 35
         },
         "id": 81,
         "panels": [],
@@ -1976,6 +2032,21 @@
                   }
                 }
               ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Application"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-red",
+                    "mode": "fixed"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -1983,7 +2054,7 @@
           "h": 5,
           "w": 24,
           "x": 0,
-          "y": 20
+          "y": 36
         },
         "id": 119,
         "interval": "$snapinterval",
@@ -2227,6 +2298,21 @@
                   }
                 }
               ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Application"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-red",
+                    "mode": "fixed"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -2234,7 +2320,7 @@
           "h": 5,
           "w": 24,
           "x": 0,
-          "y": 25
+          "y": 41
         },
         "id": 118,
         "interval": "$snapinterval",
@@ -2469,7 +2555,7 @@
           "h": 5,
           "w": 24,
           "x": 0,
-          "y": 30
+          "y": 46
         },
         "id": 105,
         "interval": "$snapinterval",
@@ -2678,6 +2764,21 @@
                   }
                 }
               ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Application"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "dark-red",
+                    "mode": "fixed"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -2685,7 +2786,7 @@
           "h": 5,
           "w": 24,
           "x": 0,
-          "y": 35
+          "y": 51
         },
         "id": 100,
         "interval": "$snapinterval",
@@ -2902,7 +3003,7 @@
           "h": 9,
           "w": 24,
           "x": 0,
-          "y": 40
+          "y": 56
         },
         "id": 112,
         "interval": "$snapinterval",
@@ -3187,7 +3288,7 @@
           "h": 9,
           "w": 24,
           "x": 0,
-          "y": 49
+          "y": 65
         },
         "id": 121,
         "interval": "$snapinterval",
@@ -3302,7 +3403,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "df7c998hwzz0ga"
+          "uid": "${dsname}"
         },
         "fieldConfig": {
           "defaults": {
@@ -3421,7 +3522,7 @@
           "h": 9,
           "w": 24,
           "x": 0,
-          "y": 58
+          "y": 74
         },
         "id": 115,
         "interval": "$snapinterval",
@@ -3438,6 +3539,10 @@
         "pluginVersion": "12.3.1",
         "targets": [
           {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "${dsname}"
+            },
             "editorMode": "code",
             "expr": "sum(sum_over_time(SESSION_DELTA_EVENTS_TIME{job=\"$job\",WAITCLASS=~\"$SYS_CLASS\",USERNAME!=\"Instance\"}[$__range:$snapinterval])) by(SQLID, EVENT,SQLTEXT)",
             "interval": "$minstep",
@@ -3448,7 +3553,7 @@
           {
             "datasource": {
               "type": "prometheus",
-              "uid": "df7c998hwzz0ga"
+              "uid": "${dsname}"
             },
             "editorMode": "code",
             "expr": "100 *\r\nsum(sum_over_time(SESSION_DELTA_EVENTS_TIME{job=\"$job\",WAITCLASS=~\"$SYS_CLASS\",USERNAME!=\"Instance\"}[$__range:$snapinterval])) by(SQLID,EVENT)\r\n  /\r\n  scalar(sum(sum_over_time(SESSION_DELTA_EVENTS_TIME{job=\"$job\",WAITCLASS=~\"$SYS_CLASS\",USERNAME!=\"Instance\"}[$__range:$snapinterval])))",
@@ -3534,8 +3639,8 @@
         },
         {
           "current": {
-            "text": "1-196-6474",
-            "value": "1-196-6474"
+            "text": "",
+            "value": ""
           },
           "datasource": {
             "type": "prometheus",
@@ -3558,8 +3663,8 @@
         },
         {
           "current": {
-            "text": "0-12-55658",
-            "value": "0-12-55658"
+            "text": "0-11-56559",
+            "value": "0-11-56559"
           },
           "datasource": {
             "type": "prometheus",
@@ -3582,8 +3687,8 @@
         },
         {
           "current": {
-            "text": "1-13433ka8w4cb6",
-            "value": "1-13433ka8w4cb6"
+            "text": "0-5r1wzastn8kx8",
+            "value": "0-5r1wzastn8kx8"
           },
           "datasource": {
             "type": "prometheus",
@@ -3679,8 +3784,8 @@
         },
         {
           "current": {
-            "text": "2025-12-30 10:10:58 → 2025-12-30 10:40:58",
-            "value": "2025-12-30 10:10:58 → 2025-12-30 10:40:58"
+            "text": "2026-01-13 14:34:16 → 2026-01-13 14:39:16",
+            "value": "2026-01-13 14:34:16 → 2026-01-13 14:39:16"
           },
           "description": "$__range",
           "hide": 2,
@@ -3689,8 +3794,8 @@
           "options": [
             {
               "selected": true,
-              "text": "2025-12-30 10:10:58 → 2025-12-30 10:40:58",
-              "value": "2025-12-30 10:10:58 → 2025-12-30 10:40:58"
+              "text": "2026-01-13 14:34:16 → 2026-01-13 14:39:16",
+              "value": "2026-01-13 14:34:16 → 2026-01-13 14:39:16"
             }
           ],
           "query": "${__from:date:YYYY-MM-DD HH:mm:ss} → ${__to:date:YYYY-MM-DD HH:mm:ss}",
@@ -3883,8 +3988,8 @@
       ]
     },
     "time": {
-      "from": "2025-12-30T05:40:37.008Z",
-      "to": "2025-12-30T05:43:40.457Z"
+      "from": "now-5m",
+      "to": "now"
     },
     "timepicker": {
       "refresh_intervals": [
@@ -3905,7 +4010,7 @@
     "timezone": "",
     "title": "Kperf Session",
     "uid": "kperfsessionv250",
-    "version": 74
+    "version": 85
   },
   "status": {}
 }

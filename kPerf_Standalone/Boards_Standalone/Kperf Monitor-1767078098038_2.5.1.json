@@ -6,7 +6,7 @@
     "namespace": "default",
     "uid": "XHNyQzvRzApD3dTGKDVkOn4NbX79LvcdxeoM9XbWve0X",
     "resourceVersion": "83",
-    "generation": 83,
+    "generation": 84,
     "creationTimestamp": "2025-12-17T05:33:32Z",
     "labels": {
       "grafana.app/deprecatedInternalID": "5"
@@ -38,7 +38,7 @@
     "editable": true,
     "fiscalYearStartMonth": 0,
     "graphTooltip": 1,
-    "id": 5,
+    "id": 0,
     "links": [],
     "panels": [
       {
@@ -3775,7 +3775,7 @@
             {
               "matcher": {
                 "id": "byName",
-                "options": "Last Over Period Exec %"
+                "options": "Exec % Last Over Period"
               },
               "properties": [
                 {
@@ -3858,6 +3858,12 @@
                 {
                   "id": "noValue",
                   "value": "0"
+                },
+                {
+                  "id": "custom.cellOptions",
+                  "value": {
+                    "type": "sparkline"
+                  }
                 }
               ]
             },
@@ -3907,7 +3913,7 @@
           "sortBy": [
             {
               "desc": true,
-              "displayName": "Last Over Period App Wait %"
+              "displayName": "User IO Wait % Last Over Period"
             }
           ]
         },
@@ -4254,10 +4260,10 @@
         {
           "current": {
             "text": [
-              "user commits"
+              "ASSM bg: segment fix monitor"
             ],
             "value": [
-              "user commits"
+              "ASSM bg: segment fix monitor"
             ]
           },
           "datasource": {
@@ -4460,7 +4466,7 @@
       ]
     },
     "time": {
-      "from": "now-30m",
+      "from": "now-30d",
       "to": "now"
     },
     "timepicker": {
@@ -4481,7 +4487,7 @@
     "timezone": "",
     "title": "Kperf Monitor",
     "uid": "kperfmonitorv250",
-    "version": 83
+    "version": 84
   },
   "status": {}
 }
