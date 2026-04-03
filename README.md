@@ -222,7 +222,8 @@ and there's more to come.
 		Example of execution:
 		python3.11 ./kPerf.py
 2. Prometheus config example:
-
+        
+       prometheus.yml
        - job_name: 'Kperf-Monitor'
          scrape_interval: 3s
          scrape_timeout: 3s
