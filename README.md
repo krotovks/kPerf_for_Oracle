@@ -187,7 +187,6 @@ and there's more to come.
 | Parameter Name	      | Description 		  				   	   									                                                                     | Default Value | Possible Value	        |
 |----------------------|----------------------------------------------------------------------------------------------------------|---------------|------------------------|
 | ISDATABASECDB		      | Is Oracle Database a CDB or a Non-CDB? 	   									                                                     | False		       | 	False/True	str	       |
-| DBSIZEINTERVAL	      | Collection interval in seconds for the DBSIZE module.					                                               | 3600			         | 	from 1 to ANY int     |
 | DBSIZEMINOBJSIZE	    | Minimum object size for data collection (in bytes).							                                               | 2621441			     | 	from 1 to ANY int     |
 | HTTPPORT			          | http port for web-server (SQL and Wait metrics collection. InstanceWaitStat&SQL MODULE)												      | 9180			       | from 1024 to 60000 int |
 | HTTPPORTSESS | http port for web-server (SESSION MODULE)                                                                |  9281  |      from 1024 to 60000 int |
@@ -222,6 +221,48 @@ and there's more to come.
         - You should not modify the structure of kPerf_Standalone, but you are allowed to rename it.
 		Example of execution:
 		python3.11 ./kPerf.py
+2. Prometheus config example:
+
+       - job_name: 'Kperf-Monitor'
+         scrape_interval: 3s
+         scrape_timeout: 3s
+         file_sd_configs:
+           - files:
+             - kperf-monitor.yml
+             refresh_interval: 10s
+
+         - job_name: 'Kperf-DBSIZE'
+           scrape_interval: 360s
+           scrape_timeout: 360s
+           file_sd_configs:
+             - files:
+                 - kperf-dbsize.yml
+               refresh_interval: 10s
+            
+         - job_name: 'Kperf-Session'
+           scrape_interval: 3s
+           scrape_timeout: 3s
+           file_sd_configs:
+             - files:
+                 - kperf-session.yml
+               refresh_interval: 10s
+
+        cat ./kperf-monitor.yml 
+             - targets: [kperf-host:9180]
+               labels:
+                 job: 'Kperf-Monitor-Test'
+        cat ./kperf-dbsize.yml
+             - targets: [kperf-host:9382]
+               labels:
+                 job: 'Kperf-DBSIZE-Test' 
+        cat ./kperf-session.yml 
+             - targets: [kperf-host:9281]
+               labels:
+                 job: 'Kperf-Session-Test'
+    
+    
+### Important:
+
 	To use link and logic in Dashboards use configure job names in Prometeus as:
 	1. - For Module: InstanceWaitStat&SQL(parameter HTTPPORT):  %Kperf-Monitor%
     2. - For Module: SESSION (parameter HTTPPORTSESS): %Kperf-Session%
